@@ -63,4 +63,9 @@ class Admin_act_manage extends CI_Controller{
     public function modifyActInfo(){
         print_r($_POST);
     }
+
+    public function deleteAct(){
+//        print_r($_POST);
+        echo json_encode(array('code' => 0));
+    }
 }

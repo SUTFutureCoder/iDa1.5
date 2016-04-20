@@ -163,11 +163,11 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <br/>
-        <h1 style="color: red">您确定要删除"<a id="act_delete_modal_display_id"></a>"活动吗?</h1>
+        <h1 style="color: red">您确定要删除"<a id="act_delete_modal_display_name"></a>"活动吗?</h1>
             <br/>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-danger">删除</button>
+                <button type="button" class="btn btn-danger" data-delete-act-id="" id="delete_act_submit">删除</button>
             </div>
         </div>
     </div>
@@ -186,12 +186,14 @@
 
     $(function(){
         var dom = {
-            modify_modal : $("#act_modify_modal"),
-            delete_modal : $("#act_delete_modal"),
-            btn_statis   : $(".act_btn_statis"),
-            btn_modify   : $(".act_btn_modify"),
+            act_table_list: $("table"),
+            modify_modal  : $("#act_modify_modal"),
+            delete_modal  : $("#act_delete_modal"),
+            btn_statis    : $(".act_btn_statis"),
+            btn_modify    : $(".act_btn_modify"),
             btn_modify_confirm: $("#modify_act_submit"),
-            btn_delete   : $(".act_btn_delete")
+            btn_delete    : $(".act_btn_delete"),
+            btn_delete_confirm: $("#delete_act_submit")
 
         };
 
@@ -212,6 +214,8 @@
                 //绑定删除事件
                 dom.btn_delete.bind('click', manageAct.deleteConfirm);
 
+                dom.btn_delete_confirm.bind('click', manageAct.deleteConfirmExec);
+
             },
 
             modifyAct: function(){
@@ -225,6 +229,10 @@
                     data: post_data,
                     dataType: 'json',
                     success: function(data){
+                        if (data['code']){
+                            alert(data['error']);
+                            return;
+                        }
                         //开始填充
                         dom.modify_modal.find("#act_name").val(data.act_name);
                         dom.modify_modal.find("#act_comment").val(data.act_comment);
@@ -268,6 +276,7 @@
                             alert('添加成功');
                             modifyForm.resetForm();
                         }
+                        dom.modify_modal.modal('hide');
                         dom.btn_modify_confirm.removeAttr("disabled");
                         dom.btn_modify_confirm.attr("value", "添加");
                     },
@@ -290,10 +299,42 @@
             deleteConfirm: function(){
                 //删除活动确认
                 var act_name = $(this).parent().parent().find('.act_display_name').html();
+                var act_id   = $(this).attr('act_id');
 
-
-                dom.delete_modal.find('#act_delete_modal_display_id').html(act_name);
+                dom.delete_modal.find('#act_delete_modal_display_name').html(act_name);
+                dom.delete_modal.find('#delete_act_submit').attr('data-delete-act-id', act_id);
                 dom.delete_modal.modal('show');
+            },
+
+            deleteConfirmExec: function(){
+                var act_id    = dom.delete_modal.find('#delete_act_submit').attr('data-delete-act-id');
+                var post_data = {
+                    act_id : act_id
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url:  'admin_act_manage/deleteAct',
+                    data: post_data,
+                    dataType: 'json',
+                    success: function(data){
+                        if (data['code']){
+                            alert(data['error']);
+                            return;
+                        }
+
+                        alert('删除成功');
+
+                        //清理
+                        dom.act_table_list.find('#act_' + act_id).remove();
+                        //关闭
+                        dom.delete_modal.modal('hide');
+                    },
+                    error: function(data){
+                        console.log(data);
+                        alert('操作失败');
+                    }
+                });
             }
 
         };
