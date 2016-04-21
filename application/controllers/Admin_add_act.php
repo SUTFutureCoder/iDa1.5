@@ -164,12 +164,12 @@ class Admin_add_act extends CI_Controller{
         }
         
         //预览图
-        if (!in_array($_FILES['upload_img']['type'], array('image/jpeg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/x-png', 'image/png  '))){
+        if (!in_array($_FILES['upload_img']['type'], array('image/jpeg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/x-png', 'image/png'))){
             echo json_encode(array('code' => -11, 'error' => '您上传的图片类型错误'));
             return 0;
         } else {
-            if (100000 < $_FILES['upload_img']['size']){
-                echo json_encode(array('code' => -12, 'error' => '您上传的图片过大，请勿超过100kb'));
+            if (1000000 < $_FILES['upload_img']['size']){
+                echo json_encode(array('code' => -12, 'error' => '您上传的图片过大，请勿超过1000kb'));
                 return 0;
             } else {
                 if ($_FILES['upload_img']['error'] > 0){
@@ -188,8 +188,8 @@ class Admin_add_act extends CI_Controller{
         }
         
         $clean['act_add_user_name'] = $this->session->userdata('user_name');
-        $clean['act_add_user_id'] = $this->session->userdata('user_id');
-        $clean['act_add_time'] = date('Y-m-d H:i:s');
+        $clean['act_add_user_id']   = $this->session->userdata('user_id');
+        $clean['act_add_time']      = date('Y-m-d H:i:s');
         
         if (!$id = $this->act_model->setAct($clean)){
             echo json_encode(array('code' => -15, 'error' => '插入失败'));

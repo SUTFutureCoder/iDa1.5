@@ -40,6 +40,11 @@ class Admin_act_manage extends CI_Controller{
         ));
     }
 
+    /**
+     * 根据id获取活动信息
+     *
+     * @return int
+     */
     public function getActAllInfoById(){
         $this->load->library('session');
         $this->load->library('authorizee');
@@ -68,7 +73,7 @@ class Admin_act_manage extends CI_Controller{
         $this->load->model('act_model');
         $this->load->library('secure');
 
-        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'person_add')){
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'act_update')){
             echo json_encode(array('code' => -1, 'error' => '抱歉您的权限不足'));
             exit;
         }
@@ -170,12 +175,12 @@ class Admin_act_manage extends CI_Controller{
 
         //预览图
         if (isset($_FILES['upload_img'])){
-            if (!in_array($_FILES['upload_img']['type'], array('image/jpeg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/x-png', 'image/png  '))){
+            if (!in_array($_FILES['upload_img']['type'], array('image/jpeg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/x-png', 'image/png'))){
                 echo json_encode(array('code' => -11, 'error' => '您上传的图片类型错误'));
                 return 0;
             } else {
-                if (100000 < $_FILES['upload_img']['size']){
-                    echo json_encode(array('code' => -12, 'error' => '您上传的图片过大，请勿超过100kb'));
+                if (1000000 < $_FILES['upload_img']['size']){
+                    echo json_encode(array('code' => -12, 'error' => '您上传的图片过大，请勿超过1000kb'));
                     return 0;
                 } else {
                     if ($_FILES['upload_img']['error'] > 0){
@@ -194,7 +199,7 @@ class Admin_act_manage extends CI_Controller{
             }
         }
 
-        if (!$this->act_model->updateAct($strActId, $clean)['ok']){
+        if (!$this->act_model->updateAct($strActId, $clean)){
             echo json_encode(array('code' => -2, 'error' => '更新活动失败'));
             exit;
         }
@@ -202,8 +207,31 @@ class Admin_act_manage extends CI_Controller{
 
     }
 
+    /**
+     *
+     * 根据act_id删除活动
+     *
+     */
     public function deleteAct(){
-//        print_r($_POST);
-        echo json_encode(array('code' => 0));
+        $this->load->library('session');
+        $this->load->library('authorizee');
+        $this->load->model('act_model');
+
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'act_dele')){
+            echo json_encode(array('code' => -1, 'error' => '抱歉您的权限不足'));
+            exit;
+        }
+
+        if (!$this->input->post('act_id', true)){
+            echo json_encode(array('code' => -2, 'error' => '目标活动id不能为空'));
+            exit;
+        }
+        $strActId = $this->input->post('act_id', true);
+
+        if (!$this->act_model->deleteAct($strActId)){
+            echo json_encode(array('code' => -3, 'error' => '删除失败'));
+            exit;
+        }
+        echo json_encode(array('code' => 1));
     }
 }

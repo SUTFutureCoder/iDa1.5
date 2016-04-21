@@ -278,7 +278,6 @@
                             alert('修改成功');
                             //修改界面
                             var updateTableList = dom.act_table_list.find('#act_' + modifyForm.find('#act_id').val());
-                            console.log(updateTableList.html());
                             updateTableList.find('.act_display_name').html(modifyForm.find('#act_name').val());
                             updateTableList.find('.act_display_school').html(modifyForm.find("#act_school").val());
                             updateTableList.find('.act_display_start').html(modifyForm.find("#act_start_time").val());
@@ -328,7 +327,7 @@
                     data: post_data,
                     dataType: 'json',
                     success: function(data){
-                        if (data['code']){
+                        if (data['code'] != 1){
                             alert(data['error']);
                             return;
                         }

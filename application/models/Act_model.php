@@ -212,7 +212,26 @@ class Act_model extends CI_Model{
      */
     public function updateAct($actId, $actInfo){
         self::getDbInstance();
-        return self::$_db->ida->act->update(array('_id' => new MongoId($actId)), array('$set' => $actInfo));
+        if (!empty(self::$_db->ida->act->update(array('_id' => new MongoId($actId)), array('$set' => $actInfo))['ok'])){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * 删除活动
+     *
+     * @param $actId
+     * @return bool
+     */
+    public function deleteAct($actId){
+        self::getDbInstance();
+        if (!empty(self::$_db->ida->act->remove(array('_id' => new MongoId($actId)))['ok'])){
+            return true;
+        } else {
+            return false;
+        }
     }
     
 }
