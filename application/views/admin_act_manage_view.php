@@ -101,7 +101,7 @@
                 <div class="col-sm-9">
                     <select class="form-control" name="act_question_type" id="act_question_type">
                         <?php  foreach ($question_type as $value): ?>
-                            <option><?= $value ?></option>
+                            <option id="act_question_type_<?= $value ?>"><?= $value ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -143,12 +143,12 @@
                 <label for="upload_img" class="col-sm-2 control-label">预览图上传</label>
                 <div class="col-sm-9">
                     <input class="form-control"  type="file" name="upload_img" id="upload_img">
-                    <p class="help-block">推荐450*243</p>
+                    <p class="help-block">如更新图片请上传，推荐450*243</p>
                 </div>
             </div>
 
             <div class="col-sm-10 col-sm-offset-1">
-                <input type="submit" class="form-control btn btn-success" id="submit" value="提交">
+                <input type="submit" class="form-control btn btn-success" id="modify_act_submit" value="提交">
             </div>
             <br/>
             <br/>
@@ -190,7 +190,9 @@
             delete_modal : $("#act_delete_modal"),
             btn_statis   : $(".act_btn_statis"),
             btn_modify   : $(".act_btn_modify"),
+            btn_modify_confirm: $("#modify_act_submit"),
             btn_delete   : $(".act_btn_delete")
+
         };
 
         var manageAct = {
@@ -201,6 +203,8 @@
             bindEvent: function(){
                 //修改的事件
                 dom.btn_modify.bind('click', manageAct.modifyAct);
+
+                dom.btn_modify_confirm.bind('click', manageAct.modifyActExec);
 
                 //获取活动统计的事件
                 dom.btn_statis.bind('click', manageAct.getActStatis);
@@ -221,11 +225,10 @@
                     data: post_data,
                     dataType: 'json',
                     success: function(data){
-                        console.log(data);
                         //开始填充
                         dom.modify_modal.find("#act_name").val(data.act_name);
                         dom.modify_modal.find("#act_comment").val(data.act_comment);
-                        dom.modify_modal.find("#act_rule,.edui-body-container").html(data.act_rule);
+                        dom.modify_modal.find("#myEditor,.edui-body-container").html(data.act_rule);
                         if (data.act_private){
                             dom.modify_modal.find("#act_private").prop('checked', true);
                         } else {
@@ -235,13 +238,11 @@
                         dom.modify_modal.find("#act_paper_time").val(data.act_paper_time);
                         dom.modify_modal.find("#act_start").val(data.act_start);
                         dom.modify_modal.find("#act_end").val(data.act_end);
-//                        dom.modify_modal.find("#act_question_type").val(data.act_question_type);
+                        dom.modify_modal.find("#act_question_type #act_question_type_" + data.act_question_type).prop('selected', 'selected');
                         dom.modify_modal.find("#act_question_choose_sum").val(data.act_question_choose_sum);
                         dom.modify_modal.find("#act_question_multi_choose_sum").val(data.act_question_multi_choose_sum);
                         dom.modify_modal.find("#act_question_judge_sum").val(data.act_question_judge_sum);
                         dom.modify_modal.find("#act_question_fill_sum").val(data.act_question_fill_sum);
-
-                        //如果不上传预览图则只修改信息
                     },
                     error: function(data){
                         console.log(data);
@@ -250,6 +251,35 @@
                 });
                 //填充信息后显示
                 dom.modify_modal.modal('show');
+            },
+
+            modifyActExec: function(){
+                var modifyForm = dom.modify_modal.find("#form_modify_act_info");
+                var options    = {
+                    dataType    : "json",
+                    beforeSubmit: function (){
+                        dom.btn_modify_confirm.attr("value", "正在提交中……请稍后");
+                        dom.btn_modify_confirm.attr("disabled", "disabled");
+                    },
+                    success     : function (data){
+                        if (data['code'] != 1){
+                            alert(data['error']);
+                        } else {
+                            alert('添加成功');
+                            modifyForm.resetForm();
+                        }
+                        dom.btn_modify_confirm.removeAttr("disabled");
+                        dom.btn_modify_confirm.attr("value", "添加");
+                    },
+                    error       : function (msg){
+                        alert("操作失败");
+                        dom.btn_modify_confirm.removeAttr("disabled");
+                        dom.btn_modify_confirm.attr("value", "添加");
+                    }
+
+                };
+
+                modifyForm.ajaxForm(options);
             },
 
             getActStatis: function(){

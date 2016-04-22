@@ -36,7 +36,7 @@ class Admin_act_manage extends CI_Controller{
 
         $this->load->view('admin_act_manage_view', array(
             'act_list'      => $arrActList,
-            'question_type' => $arrQuestionType,
+            'question_type' => $arrQuestionType, 
         ));
     }
 
@@ -58,5 +58,9 @@ class Admin_act_manage extends CI_Controller{
         }
 
         echo json_encode($arrActInfo);
+    }
+
+    public function modifyActInfo(){
+        print_r($_POST);
     }
 }
