@@ -21,6 +21,7 @@ class Admin_act_manage extends CI_Controller{
     public function Index(){
         $this->load->library('session');
         $this->load->library('authorizee');
+        $this->load->model('question_model');
         $this->load->model('act_model');
 
         if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'person_add')){
@@ -31,8 +32,11 @@ class Admin_act_manage extends CI_Controller{
 
         $arrActList = $this->act_model->getAllActBasicList();
 
+        $arrQuestionType = $this->question_model->getQuestionType();
+
         $this->load->view('admin_act_manage_view', array(
-            'act_list' => $arrActList,
+            'act_list'      => $arrActList,
+            'question_type' => $arrQuestionType,
         ));
     }
 
@@ -46,7 +50,6 @@ class Admin_act_manage extends CI_Controller{
             echo json_encode(array('code' => -1, 'error' => '抱歉，您的权限不足'));
             return 0;
         }
-
         $arrActInfo = $this->act_model->getActInfoById($this->input->post('id', true));
 
         if (empty($arrActInfo)){
@@ -54,6 +57,6 @@ class Admin_act_manage extends CI_Controller{
             exit;
         }
 
-        echo json_encode(array('code' => 0, 'error' => json_encode($arrActInfo)));
+        echo json_encode($arrActInfo);
     }
 }

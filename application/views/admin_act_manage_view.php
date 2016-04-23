@@ -100,9 +100,9 @@
                 <label for="act_question_type" class="col-sm-2 control-label">题库类型</label>
                 <div class="col-sm-9">
                     <select class="form-control" name="act_question_type" id="act_question_type">
-                        <?php // foreach ($type as $value): ?>
-                            <option><?php //$value ?></option>
-                        <?php //endforeach; ?>
+                        <?php  foreach ($question_type as $value): ?>
+                            <option><?= $value ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
@@ -200,10 +200,7 @@
 
             bindEvent: function(){
                 //修改的事件
-                dom.btn_modify.bind('click', function () {
-                    //填充信息后显示
-                    dom.modify_modal.modal('show');
-                })
+                dom.btn_modify.bind('click', manageAct.modifyAct);
 
                 //获取活动统计的事件
                 dom.btn_statis.bind('click', manageAct.getActStatis);
@@ -211,6 +208,48 @@
                 //绑定删除事件
                 dom.btn_delete.bind('click', manageAct.deleteConfirm);
 
+            },
+
+            modifyAct: function(){
+                //向后端通信获取数据
+                var post_data = {
+                    'id' : $(this).attr('act_id')
+                };
+                $.ajax({
+                    type: 'POST',
+                    url:  'admin_act_manage/getActAllInfoById',
+                    data: post_data,
+                    dataType: 'json',
+                    success: function(data){
+                        console.log(data);
+                        //开始填充
+                        dom.modify_modal.find("#act_name").val(data.act_name);
+                        dom.modify_modal.find("#act_comment").val(data.act_comment);
+                        dom.modify_modal.find("#act_rule,.edui-body-container").html(data.act_rule);
+                        if (data.act_private){
+                            dom.modify_modal.find("#act_private").prop('checked', true);
+                        } else {
+                            dom.modify_modal.find("#act_private").prop('checked', false);
+                        }
+                        dom.modify_modal.find("#act_school").val(data.act_school);
+                        dom.modify_modal.find("#act_paper_time").val(data.act_paper_time);
+                        dom.modify_modal.find("#act_start").val(data.act_start);
+                        dom.modify_modal.find("#act_end").val(data.act_end);
+//                        dom.modify_modal.find("#act_question_type").val(data.act_question_type);
+                        dom.modify_modal.find("#act_question_choose_sum").val(data.act_question_choose_sum);
+                        dom.modify_modal.find("#act_question_multi_choose_sum").val(data.act_question_multi_choose_sum);
+                        dom.modify_modal.find("#act_question_judge_sum").val(data.act_question_judge_sum);
+                        dom.modify_modal.find("#act_question_fill_sum").val(data.act_question_fill_sum);
+
+                        //如果不上传预览图则只修改信息
+                    },
+                    error: function(data){
+                        console.log(data);
+                        alert('操作失败');
+                    }
+                });
+                //填充信息后显示
+                dom.modify_modal.modal('show');
             },
 
             getActStatis: function(){
