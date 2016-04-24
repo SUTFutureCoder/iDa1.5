@@ -48,8 +48,6 @@ class Act_statis extends CI_Controller{
 
 
     public function dumpStatisToExcel(){
-        $strActId = '552001630da82a4e4e20312b';
-
         $this->load->library('session');
         $this->load->library('authorizee');
         $this->load->model('act_model');
@@ -60,6 +58,7 @@ class Act_statis extends CI_Controller{
             echo '<script>alert("抱歉，您的权限不足");window.location.href="' . base_url() . '";</script>';
             return 0;
         }
+        $strActId   = $this->input->get('id');
 
         $arrActInfo = $this->act_model->getActInfoById($strActId);
         if (empty($arrActInfo)){
@@ -141,12 +140,11 @@ class Act_statis extends CI_Controller{
                 ++$intErrorLine;
                 continue;
             }
-
             $objCurrentSheet->setCellValue('A' . $intLine, ($intLine - 3));
             $objCurrentSheet->setCellValue('B' . $intLine, $arrValue['user_name']);
             $objCurrentSheet->setCellValue('C' . $intLine, $arrValue['answer_score']);
             $objCurrentSheet->setCellValue('D' . $intLine, $arrValue['answer_time']);
-            $objCurrentSheet->setCellValue('E' . $intLine, $arrUserInfoList[$strUserId]['user_school']);
+            $objCurrentSheet->setCellValue('E' . $intLine, implode(',', $arrUserInfoList[$strUserId]['user_school']));
             $objCurrentSheet->setCellValue('F' . $intLine, $arrUserInfoList[$strUserId]['user_major']);
             $objCurrentSheet->setCellValue('G' . $intLine, $arrUserInfoList[$strUserId]['user_number']);
             $objCurrentSheet->setCellValue('H' . $intLine, $arrUserInfoList[$strUserId]['user_telephone']);

@@ -25,8 +25,11 @@ class Script extends CI_Controller{
         $objDb       = self::getDbInstance();
         $arrUserList = $objDb->ida->user->find();
         foreach ($arrUserList as $_id => $value){
-            $strUserSchool = $value['user_school'];
-            $objDb->ida->user->update(array('_id' => new MongoId($_id)), array('$set' => array('user_school' => array($strUserSchool,))), array('upsert' => false, 'multiple' => true));
+            if (is_array($value['user_school'][0])){
+                $strUserSchool = $value['user_school'][0][0];
+                $objDb->ida->user->update(array('_id' => new MongoId($_id)), array('$set' => array('user_school' => array($strUserSchool,))), array('upsert' => false, 'multiple' => true));
+            }
+
         }
         echo 'done';
     }

@@ -18,7 +18,16 @@ class Act_model extends CI_Model{
         parent::__construct();
     }
     
-    static private $_db;
+    static private $_db = null;
+
+    private static function getDbInstance(){
+        $ci =& get_instance();
+        $ci->load->library('database');
+
+        if (self::$_db === null){
+            self::$_db = $ci->database->conn();
+        }
+    }
 
 
     /**    
@@ -33,11 +42,7 @@ class Act_model extends CI_Model{
      *  _id 添加成功
     */ 
     public function setAct($act){
-        $this->load->library('database');
-        
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
         
         self::$_db->ida->act->insert($act, array('safe' => TRUE));
         if ($act['_id']){
@@ -58,10 +63,7 @@ class Act_model extends CI_Model{
      *  array $act_list 活动列表
     */ 
     public function getActList($arrUserSchool = null){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
 
         if (null === $arrUserSchool){
             $cursor = self::$_db->ida->act->find(array('act_start' => array('$lt' => date('Y-m-d H:i:s')), 'act_end' => array('$gt' => date('Y-m-d H:i:s')), 'act_private' => 0,), array('act_name' => 1, 'act_comment' => 1, 'act_start' => 1, 'act_end' => 1, 'act_img' => 1));
@@ -93,10 +95,7 @@ class Act_model extends CI_Model{
      *  array $act_info 活动详情
     */ 
     public function getActInfoById($id){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
         
         try{
             $cursor = self::$_db->ida->act->find(array('_id' => new MongoId("$id")));
@@ -129,11 +128,7 @@ class Act_model extends CI_Model{
      *  array $act_list 活动列表
     */ 
     public function getUserRank($act_id){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
-        
+        self::getDbInstance();
         
         try{
             $cursor = self::$_db->ida->answer->find(array('act_id' => $act_id), array('answer_score' => 1, 'user_name' => 1, 'user_school' => 1, 'user_class' => 1, 'answer_time' => 1, 'user_id' => 1))->sort(array('answer_score' => -1, 'answer_time' => 1))->limit(100);
@@ -167,10 +162,8 @@ class Act_model extends CI_Model{
      *  array $act_statis
     */ 
     public function getActStatisById($act_id){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
+
         $act_statis = array();
         $act_statis['join'] = self::$_db->ida->answer->find(array('act_id' => $act_id))->count();
 
@@ -192,8 +185,22 @@ class Act_model extends CI_Model{
         return $act_statis;
     }
 
-    public function getAllActList(){
+    /**
+     *
+     * 获取按照添加时间倒序排列的所有活动基础信息列表
+     *
+     * @return array
+     */
+    public function getAllActBasicList(){
+        self::getDbInstance();
 
+        $arrRet     = self::$_db->ida->act->find(array(), array('act_name' => 1, 'act_school' => 1, 'act_start' => 1, 'act_end' => 1,))
+            ->sort(array('act_add_time' => -1))->limit(50);
+        $arrActData = array();
+        foreach ($arrRet as $_id => $arrValue){
+            $arrActData[] = $arrValue;
+        }
+        return $arrActData;
     }
     
 }

@@ -29,10 +29,31 @@ class Admin_act_manage extends CI_Controller{
             return 0;
         }
 
-        $arrActList = $this->act_model->getActList();
+        $arrActList = $this->act_model->getAllActBasicList();
 
-        $this->load->view('admin_add_act_view', array(
-            'type' => $arrActList,
+        $this->load->view('admin_act_manage_view', array(
+            'act_list' => $arrActList,
         ));
+    }
+
+    public function getActAllInfoById(){
+        $this->load->library('session');
+        $this->load->library('authorizee');
+        $this->load->model('act_model');
+
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'person_add')){
+            header("Content-type: text/html; charset=utf-8");
+            echo json_encode(array('code' => -1, 'error' => '抱歉，您的权限不足'));
+            return 0;
+        }
+
+        $arrActInfo = $this->act_model->getActInfoById($this->input->post('id', true));
+
+        if (empty($arrActInfo)){
+            echo json_encode(array('code' => -2, 'error' => '抱歉，活动不存在'));
+            exit;
+        }
+
+        echo json_encode(array('code' => 0, 'error' => json_encode($arrActInfo)));
     }
 }

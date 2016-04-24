@@ -27,12 +27,12 @@
 
                         <div title="题目相关">
                                 <a href="javascript:void(0);" src="<?= base_url('index.php/admin_add_question') ?>" class="cs-navi-tab">添加题目</a></p>
-                                <a href="javascript:void(0);" src="../index.php/log/getLogPage" class="cs-navi-tab">题目列表</a></p>
+
                         </div>
 
                         <div title="答题相关">
                                 <a href="javascript:void(0);" src="<?= base_url('index.php/admin_add_act') ?>" class="cs-navi-tab">添加活动</a></p>
-                                <a href="javascript:void(0);" src="index.php/changepass" class="cs-navi-tab">活动列表</a></p>
+                            <a href="javascript:void(0);" src="<?= base_url('index.php/admin_act_manage') ?>" class="cs-navi-tab">活动列表</a></p>
                         </div>      
                     
                         <div title="平台相关">
