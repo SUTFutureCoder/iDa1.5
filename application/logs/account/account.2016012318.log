@@ -1,0 +1,3 @@
+trace: 16-01-23 18:13:38 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:71] logId[145354401813] data[TEST]
+trace: 16-01-23 18:13:49 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:71] logId[145354402914] data[TEST]
+trace: 16-01-23 18:15:24 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:71] logId[145354412415] data[TEST]

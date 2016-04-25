@@ -1,0 +1,7 @@
+fatal: 16-03-31 17:09:14 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535417] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:
+fatal: 16-03-31 17:09:15 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535518] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:
+fatal: 16-03-31 17:09:15 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535519] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535620] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535621] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535622] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941535623] uri[/welcome/testThrow] userId[0] Errno msg not found. errno.:

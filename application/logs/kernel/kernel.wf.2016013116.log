@@ -1,0 +1,765 @@
+warning: 16-01-31 16:12:40 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422796024] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:13:47 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422802725] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:20:23 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422842326] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:20:25 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422842527] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:20:25 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422842528] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:20:26 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422842629] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:22:17 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422853730] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:22:47 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422856731] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+
+warning: 16-01-31 16:25:13 [/var/www/html/Mnemosyne/application/libraries/MLog.php:169] logId[145422871332] uri[/welcome/testDebugBacktrace] Array
+(
+    [0] => Array
+        (
+            [0] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Hooks.php
+                    [line] => 103
+                    [function] => include
+                )
+
+            [1] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/Common.php
+                    [line] => 196
+                    [function] => __construct
+                    [class] => CI_Hooks
+                    [object] => CI_Hooks Object
+                        (
+                            [enabled] => 1
+                            [hooks] => Array
+                                (
+                                    [post_controller] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [class] => MLog
+                                                    [function] => testBackTrace
+                                                    [filename] => MLog.php
+                                                    [filepath] => libraries
+                                                    [params] => Array
+ *RECURSION*
+                                                )
+
+                                        )
+
+                                )
+
+                            [_objects:protected] => Array
+                                (
+                                    [MLog] => MLog Object
+                                        (
+                                        )
+
+                                )
+
+                            [_in_progress:protected] => 1
+                        )
+
+                    [type] => ->
+                    [args] => Array
+                        (
+                        )
+
+                )
+
+            [2] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                    [line] => 197
+                    [function] => load_class
+                    [args] => Array
+                        (
+                            [0] => Hooks
+                            [1] => core
+                        )
+
+                )
+
+            [3] => Array
+                (
+                    [file] => /var/www/html/Mnemosyne/index.php
+                    [line] => 292
+                    [args] => Array
+                        (
+                            [0] => /var/www/html/Mnemosyne/system/core/CodeIgniter.php
+                        )
+
+                    [function] => require_once
+                )
+
+        )
+
+)
+

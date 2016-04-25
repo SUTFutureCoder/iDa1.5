@@ -1,0 +1,2 @@
+trace: 16-01-24 16:52:18 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:71] logId[145362553816] uri[/welcome/testLogPath] TEST
+trace: 16-01-24 16:55:10 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:71] logId[145362571017] uri[/welcome/testLogPath] TEST

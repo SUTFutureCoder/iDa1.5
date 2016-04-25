@@ -1,0 +1,23 @@
+fatal: 16-03-06 19:00:52 [/var/www/html/Mnemosyne/application/libraries/Token.php:124] args["14572600262","f186ea7eee9fea0c7deb2934eb6b4553f1a038fd5293e4293ef73e63f3f3a791","6b8aaa7cee5a91792924b7923e4ce4805b1860ea0f92fc237d619e9602f6efed"] logId[1457262052178] uri[/api/user/UserInfo/userInfoInit] userId[0] test#2
+fatal: 16-03-06 19:01:01 [/var/www/html/Mnemosyne/application/libraries/Token.php:124] args["14572600262","f186ea7eee9fea0c7deb2934eb6b4553f1a038fd5293e4293ef73e63f3f3a791","6b8aaa7cee5a91792924b7923e4ce4805b1860ea0f92fc237d619e9602f6efed"] logId[1457262061179] uri[/api/user/UserInfo/userInfoInit] userId[0] test#2
+fatal: 16-03-06 19:12:11 [/var/www/html/Mnemosyne/application/controllers/api/account/Account.php:193] args[{"id":"2","user_id":"14572600262","user_name":"","user_birthday":"0000-00-00","user_sex":"0","user_password":"$2y$10$eZMbzDGhSAPxoscFyG866OPmFhF83tUoOTF\/4KeTfyeLRgf0JqRxu","user_mobile":"13940022196","user_email":"506200332@qq.com","user_sign":"","user_status":"1","user_create_time":"1457260026","user_last_login_time":"0"},"2","fb2621ed9ed34e85ca88fe068619b27e5bebc55ac6475047e49bd41eddf90ada","d050d407c59ad0215b181d2987d84e88669dd70e8273232189d019066f0e36df"] logId[1457262731180] uri[/api/account/account/login] userId[0] Array
+(
+    [user_name] => 
+    [platform] => 2
+)
+
+fatal: 16-03-06 19:15:43 [/var/www/html/Mnemosyne/application/libraries/Token.php:222] args["bc04650633713389a0b617bc692468c78262761513c9b23efd7d3d1a5b73b5c2","3588aabaeaafc8d1ce356abf8dc181ed4969415f6ff61f676829c1f9811e12f4","14572600262",{"user_name":"","platform":"2"}] logId[1457262943182] uri[/api/account/account/login] userId[0] Redis Object
+(
+    [socket] => Resource id #4
+)
+
+fatal: 16-03-06 19:16:46 [/var/www/html/Mnemosyne/application/libraries/Token.php:222] args["c4eccffb4c34145c36ea922ab807fa785a7f2d199a58c8665ef8577e87183e8c","03ae305a53b2be1f9d852bd233051c0f1535b4b03b8501f7821b46d9f6104f0d","14572600262",{"user_name":"","platform":"2"}] logId[1457263006183] uri[/api/account/account/login] userId[0] Array
+(
+    [user_name] => 
+    [platform] => 2
+)
+
+fatal: 16-03-06 19:19:47 [/var/www/html/Mnemosyne/application/libraries/Token.php:223] args["8bb84f4a1676a9fb6f601b9ecfbd63e3654f38e65d6faa90291cb8604992f448","21792acf3bdf4b421fe91fe73e1bbb29d400493d658fc73ca796b310d048ef71","14572600262",{"user_name":"","platform":"2"}] logId[1457263186185] uri[/api/account/account/login] userId[0] 1
+fatal: 16-03-06 19:25:20 [/var/www/html/Mnemosyne/application/models/UserLogModels.php:35] args["14572600262",{"user_name":"\u6797\u661f\u8fb0","user_birthday":"1991-03-01","user_sex":"1","affected_rows":0,"run_status":1},"user","UserModels::updateUser"] logId[1457263520190] uri[/api/user/UserInfo/userInfoInit] userId[14572600262] 2
+fatal: 16-03-06 19:27:57 [/var/www/html/Mnemosyne/application/models/UserLogModels.php:34] args["14572600262",{"user_name":"\u6797\u661f\u8fb0","user_birthday":"1991-03-01","user_sex":"1","affected_rows":0,"run_status":1},"user","UserModels::updateUser"] logId[1457263677193] uri[/api/user/UserInfo/userInfoInit] userId[14572600262] 2
+fatal: 16-03-06 19:28:46 [/var/www/html/Mnemosyne/application/models/UserLogModels.php:34] args["14572600262",{"user_name":"\u6797\u661f\u8fb0","user_birthday":"1991-03-01","user_sex":"1","affected_rows":0,"run_status":1},"user","UserModels::updateUser"] logId[1457263726194] uri[/api/user/UserInfo/userInfoInit] userId[14572600262] 

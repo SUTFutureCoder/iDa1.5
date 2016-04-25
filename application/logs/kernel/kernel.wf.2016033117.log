@@ -1,0 +1,15 @@
+fatal: 16-03-31 17:09:14 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535417] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:09:15 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535518] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:09:15 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535519] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535620] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535621] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535622] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:09:16 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941535623] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:14:14 [/var/www/html/Mnemosyne/system/core/Loader.php:1247] argsnull logId[145941565424] uri[/welcome/testThrow] userId[0] file get content php input error
+fatal: 16-03-31 17:14:14 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941565424] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:21:41 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941610125] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:31:48 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941670826] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:37:59 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941707927] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:38:00 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941708028] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:38:45 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941712529] uri[/welcome/testThrow] userId[0] param error
+fatal: 16-03-31 17:41:01 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:160] argsnull logId[145941726130] uri[/welcome/testThrow] userId[0] param error

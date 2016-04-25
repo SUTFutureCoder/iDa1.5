@@ -1,0 +1,2 @@
+fatal: 16-02-27 17:10:09 [/var/www/html/Mnemosyne/application/libraries/MEmail.php:95] args["EMAIL","\u4e0d\u5199\u6807\u9898\u4f60\u662f\u8981\u8bf7\u9e21\u7fc5\u5417?"] logId[1456564209158] uri[/welcome/sendEmailByLibrary] userId[0] 不写标题你是要请鸡翅吗?
+fatal: 16-02-27 17:11:55 [/var/www/html/Mnemosyne/application/libraries/MEmail.php:95] args["EMAIL","\u4e0d\u5199\u6807\u9898\u4f60\u662f\u8981\u8bf7\u9e21\u7fc5\u5417?"] logId[1456564315159] uri[/welcome/sendEmailByLibrary] userId[0] 不写标题你是要请鸡翅吗?

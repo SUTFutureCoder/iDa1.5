@@ -1,0 +1,4 @@
+warning: 16-01-31 17:32:02 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:75] logId[145423272233] uri[/welcome/testLogPath] TEST
+warning: 16-01-31 17:41:30 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:75] args[["account","TEST"]] logId[145423329034] uri[/welcome/testLogPath] TEST
+warning: 16-01-31 17:41:31 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:75] args[["account","TEST"]] logId[145423329135] uri[/welcome/testLogPath] TEST
+warning: 16-01-31 17:41:56 [/var/www/html/Mnemosyne/application/controllers/Welcome.php:75] args["account","TEST"] logId[145423331636] uri[/welcome/testLogPath] TEST

@@ -1,0 +1,1 @@
+trace: 16-04-19 18:15:29 [/var/www/html/Mnemosyne/application/libraries/util/SAL.php:108] args[] logId[146106092941] uri[/welcome/testPutObject] userId[0] upload file stream cost[10994.632005692]

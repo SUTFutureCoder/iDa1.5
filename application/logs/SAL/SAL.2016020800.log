@@ -1,0 +1,4 @@
+trace: 16-02-08 00:43:21 [/var/www/html/Mnemosyne/application/libraries/SAL.php:60] args["SAL","doHttp cost[1.2891292572021ms]"] logId[1454863401122] uri[/welcome/testWebsocket] doHttp cost[1.2891292572021ms]
+trace: 16-02-08 00:44:14 [/var/www/html/Mnemosyne/application/libraries/SAL.php:60] args["SAL","doHttp cost[1.4510154724121ms]"] logId[1454863454123] uri[/welcome/testWebsocket] doHttp cost[1.4510154724121ms]
+trace: 16-02-08 00:44:18 [/var/www/html/Mnemosyne/application/libraries/SAL.php:60] args["SAL","doHttp cost[0.72097778320312ms]"] logId[1454863458124] uri[/welcome/testWebsocket] doHttp cost[0.72097778320312ms]
+trace: 16-02-08 00:44:24 [/var/www/html/Mnemosyne/application/libraries/SAL.php:60] args["SAL","doHttp cost[1.3110637664795ms]"] logId[1454863464125] uri[/welcome/testWebsocket] doHttp cost[1.3110637664795ms]
