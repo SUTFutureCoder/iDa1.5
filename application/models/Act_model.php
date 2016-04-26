@@ -202,5 +202,17 @@ class Act_model extends CI_Model{
         }
         return $arrActData;
     }
+
+    /**
+     * 修改活动信息
+     *
+     * @param $actId
+     * @param $actInfo
+     * @return mixed
+     */
+    public function updateAct($actId, $actInfo){
+        self::getDbInstance();
+        return self::$_db->ida->act->update(array('_id' => new MongoId($actId)), array('$set' => $actInfo));
+    }
     
 }

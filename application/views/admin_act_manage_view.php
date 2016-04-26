@@ -23,9 +23,9 @@
         <tr id="act_<?= $arrListValue['_id'] ?>">
             <td><?= $key + 1 ?></td>
             <td class="act_display_name"><?= $arrListValue['act_name'] ?></td>
-            <td><?= $arrListValue['act_school'] ?></td>
-            <td><?= $arrListValue['act_start'] ?></td>
-            <td><?= $arrListValue['act_end'] ?></td>
+            <td class="act_display_school"><?= $arrListValue['act_school'] ?></td>
+            <td class="act_display_start"><?= $arrListValue['act_start'] ?></td>
+            <td class="act_display_end"><?= $arrListValue['act_end'] ?></td>
             <td>
                 <button type="button" class="btn btn-info act_btn_statis"    act_id="<?= $arrListValue['_id'] ?>">统计</button>
                 <button type="button" class="btn btn-warning act_btn_modify" act_id="<?= $arrListValue['_id'] ?>">修改</button>
@@ -44,6 +44,7 @@
         <div class="modal-content">
         <br/>
         <form action="admin_act_manage/modifyActInfo" enctype="multipart/form-data" class="form-horizontal" role="form" id="form_modify_act_info" role="form" method="post">
+            <input type="text" class="form-control" name="act_id" id="act_id" style="display: none;">
             <div class="form-group">
                 <label for="act_name" class="col-sm-2 control-label">活动名称</label>
                 <div class="col-sm-9">
@@ -234,6 +235,7 @@
                             return;
                         }
                         //开始填充
+                        dom.modify_modal.find("#act_id").val(post_data.id);
                         dom.modify_modal.find("#act_name").val(data.act_name);
                         dom.modify_modal.find("#act_comment").val(data.act_comment);
                         dom.modify_modal.find("#myEditor,.edui-body-container").html(data.act_rule);
@@ -273,17 +275,25 @@
                         if (data['code'] != 1){
                             alert(data['error']);
                         } else {
-                            alert('添加成功');
+                            alert('修改成功');
+                            //修改界面
+                            var updateTableList = dom.act_table_list.find('#act_' + modifyForm.find('#act_id').val());
+                            console.log(updateTableList.html());
+                            updateTableList.find('.act_display_name').html(modifyForm.find('#act_name').val());
+                            updateTableList.find('.act_display_school').html(modifyForm.find("#act_school").val());
+                            updateTableList.find('.act_display_start').html(modifyForm.find("#act_start_time").val());
+                            updateTableList.find('.act_display_end').html(modifyForm.find("#act_end_time").val());
+
                             modifyForm.resetForm();
                         }
                         dom.modify_modal.modal('hide');
                         dom.btn_modify_confirm.removeAttr("disabled");
-                        dom.btn_modify_confirm.attr("value", "添加");
+                        dom.btn_modify_confirm.attr("value", "修改");
                     },
                     error       : function (msg){
                         alert("操作失败");
                         dom.btn_modify_confirm.removeAttr("disabled");
-                        dom.btn_modify_confirm.attr("value", "添加");
+                        dom.btn_modify_confirm.attr("value", "修改");
                     }
 
                 };
@@ -310,7 +320,7 @@
                 var act_id    = dom.delete_modal.find('#delete_act_submit').attr('data-delete-act-id');
                 var post_data = {
                     act_id : act_id
-                }
+                };
 
                 $.ajax({
                     type: 'POST',
@@ -341,44 +351,5 @@
 
         manageAct.init();
     });
-
-//    $(function(){
-//        var options = {
-//            dataType    : "json",
-//            beforeSubmit: function (){
-//                $(".btn").attr("value", "正在提交中……请稍后");
-//                $(".btn").attr("disabled", "disabled");
-//            },
-//            success     : function (data){
-//                if (data['code'] != 1){
-//                    alert(data['error']);
-//                } else {
-//                    alert('添加成功');
-//                    $("#form_add_act").resetForm();
-//                }
-//                $(".btn").removeAttr("disabled");
-//                $(".btn").attr("value", "添加");
-//            },
-//            error       : function (msg){
-//                alert("操作失败");
-//                $(".btn").removeAttr("disabled");
-//                $(".btn").attr("value", "添加");
-//            }
-//
-//        };
-//
-//        $("#form_add_act").ajaxForm(options);
-//
-//
-//        //确定选项数目
-//        $("#confirm_question_num").click(function(){
-//            $("#question_choose_set").empty();
-//            var question_indicator = 65;
-//            var question_num = $("#question_num").val();
-//            for (var i = 0; i < question_num; i++, question_indicator++){
-//                $("#question_choose_set").append('<label for="question_choose_' + String.fromCharCode(question_indicator) + '" class="col-sm-2 control-label">' + String.fromCharCode(question_indicator) + '</label><div class="col-sm-9"><input type="text" class="form-control question_choose_input" name="question_choose[]" id="question_choose_' + String.fromCharCode(question_indicator) + '"></div><br/><br/>');
-//            }
-//        });
-//    });
 </script>
 </html>
