@@ -68,6 +68,10 @@
         </table>
     </div>
 
+    <div id="bottom">
+
+    </div>
+
 
 <div class="modal fade bs-example-modal-lg" id="question_modify_modal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -215,21 +219,22 @@
         top     : $("#top"),
         search_text  : $("#top-search-text"),
         search_submit: $("#top-search-submit"),
+
         content : $("#content"),
         content_table: $("#content-table"),
         question_type        : $("#select-question-type"),
         question_answer_type : $("#select-question-answer-type"),
 
         question_modify_modal: $("#question_modify_modal"),
-        question_delete_modal: $("#question_delete_modal")
+        question_delete_modal: $("#question_delete_modal"),
 
-
+        bottom  : $("#bottom")
     };
 
     var page = {
         //分页属性
         page_no : 1,
-        perpage : 20
+        perpage : 70
     };
 
     var funcInit = {
@@ -239,8 +244,14 @@
 
         bindFunc: function(){
             //绑定切换下拉菜单动作方法
-            dom.question_type.bind('change', this.changeQuestionBank);
-            dom.question_answer_type.bind('change', this.changeQuestionBank);
+            dom.question_type.bind('change', function(){
+                funcInit.resetPage();
+                funcInit.changeQuestionBank();
+            });
+            dom.question_answer_type.bind('change', function(){
+                funcInit.resetPage();
+                funcInit.changeQuestionBank();
+            });
 
             //绑定进行搜索事件
             dom.search_submit.bind('click',  this.submitSearch);
@@ -277,8 +288,7 @@
                         return;
                     }
                     //开始填充
-//                    console.log(data);
-                    funcInit.displayData(data, page);
+                    funcInit.displayData(data['data'], page, data['sum']);
                 },
                 error: function(data){
                     alert('操作失败');
@@ -466,7 +476,7 @@
             });
         },
 
-        displayData: function(data, divide){
+        displayData: function(data, divide, sum){
             //用于统一显示数据
             var dataLength       = data.length;
             var contentTableBody = dom.content_table.find('tbody');
@@ -490,8 +500,73 @@
 
             //如果分页,则显示页码等信息
             if (divide){
+                //计算一共几页
+                var pageSum      = Math.ceil((sum * 1) / page.perpage);
+                //算出展示的页码，5个一组，12345,34567
+                var pageBtnShow  = 5;
+                var firstPageBtn = 1;
+                var lastPageBtn  = pageSum;
+                //顶头情况
+                if (page.page_no - 1 <= (pageBtnShow - 1) / 2){
+                    firstPageBtn = 1;
+                    if (pageBtnShow <= pageSum){
+                        lastPageBtn  = pageBtnShow;
+                    } else {
+                        lastPageBtn  = pageSum;
+                    }
+                } else if (pageSum - page.page_no <= (pageBtnShow - 1) / 2){
+                    //结尾情况
+                    lastPageBtn  = pageSum;
+                    if (lastPageBtn  - pageBtnShow > 0){
+                        firstPageBtn = lastPageBtn - pageBtnShow;
+                    } else {
+                        firstPageBtn = 1;
+                    }
+                } else {
+                    //中间情况
+                    firstPageBtn = page.page_no * 1 - (pageBtnShow - 1) / 2;
+                    lastPageBtn  = page.page_no * 1 + (pageBtnShow - 1) / 2;
+                }
 
+                var strDivide = '<nav><ul class="pagination">' +
+                    '<li id="pager_prev"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>';
 
+                for (var i = firstPageBtn; i <= lastPageBtn; ++i){
+                    strDivide += '<li class="pager_changer" data-pager-num="' + i + '"><a href="#">' + i + ' </a></li>';
+                }
+
+                strDivide += '<li id="pager_next"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li></ul></nav>';
+                dom.bottom.html(strDivide);
+                //开始染色
+                if (firstPageBtn == page.page_no){
+                    dom.bottom.find("#pager_prev").addClass('disabled');
+                    dom.bottom.find('#pager_prev').off('click');
+                } else {
+                    //绑定上一页
+                    dom.bottom.find('#pager_prev').on('click', function(){
+                        page.page_no--;
+                        funcInit.changeQuestionBank();
+                    });
+                }
+//
+                if (lastPageBtn == page.page_no){
+                    dom.bottom.find('#pager_next').addClass('disabled');
+                    dom.bottom.find('#pager_next').off('click');
+                } else {
+                    //绑定下一页
+                    dom.bottom.find('#pager_next').on('click', function(){
+                        page.page_no++;
+                        funcInit.changeQuestionBank();
+                    });
+                }
+
+                //遍历绑定
+                dom.bottom.find('.pager_changer').each(function () {
+                    $(this).on('click', function(){
+                        page.page_no = $(this).attr('data-pager-num');
+                        funcInit.changeQuestionBank();
+                    });
+                });
             }
         },
 

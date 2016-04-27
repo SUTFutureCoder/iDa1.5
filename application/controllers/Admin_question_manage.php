@@ -139,8 +139,9 @@ class Admin_question_manage extends CI_Controller{
         }
 
         $arrPage   = $this->input->post('page');
-        $intPageNo = empty($arrPage['page_no']) ? $arrPage['page_no'] : 1;
-        $intPerpage= empty($arrPage['perpage']) ? $arrPage['perpage'] : 20;
+
+        $intPageNo = !empty($arrPage['page_no']) ? $arrPage['page_no'] : 1;
+        $intPerpage= !empty($arrPage['perpage']) ? $arrPage['perpage'] : 20;
         
         $arrRet = $this->question_model->getQuestionListByQuestionBankName($strQuestionBankName, $intPageNo, $intPerpage, $strQuestionType);
         echo json_encode($arrRet);

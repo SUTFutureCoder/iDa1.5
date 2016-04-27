@@ -176,11 +176,12 @@ class Question_model extends CI_Model{
             $arrConds = array('question_type' => $strQuestionBank, 'type' => $strQuestionType);
         }
 
-        $cursor = self::$_db->ida->question->find($arrConds)->sort(array('question_add_time' => -1))->limit($intPerpage)->skip(($intPageNo - 1) * $intPerpage);
-
-        $data   = array();
+        $cursor  = self::$_db->ida->question->find($arrConds)->sort(array('question_add_time' => -1))->limit($intPerpage)->skip(($intPageNo - 1) * $intPerpage);
+        $data    = array(
+            'sum' => $datasum = self::$_db->ida->question->find($arrConds)->count()
+        );
         foreach ($cursor as $key => $value){
-            $data[] = $value;
+            $data['data'][] = $value;
         }
         return $data;
     }
