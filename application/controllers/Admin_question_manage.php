@@ -48,6 +48,11 @@ class Admin_question_manage extends CI_Controller{
         
     }
 
+    /**
+     * 搜索问题
+     *
+     * @return int
+     */
     public function searchQuestion(){
         $this->load->model('question_model');
         $this->load->library('session');
@@ -78,6 +83,11 @@ class Admin_question_manage extends CI_Controller{
         echo json_encode($arrData);
     }
 
+    /**
+     * 通过id获取问题信息
+     *
+     * @return int
+     */
     public function getQuestionInfoById(){
         $this->load->model('question_model');
         $this->load->library('session');
@@ -99,6 +109,44 @@ class Admin_question_manage extends CI_Controller{
 
         echo json_encode($this->question_model->getQuestionById($strId));
     }
+
+
+    public function getQuestionList(){
+        $this->load->model('question_model');
+        $this->load->library('session');
+        $this->load->library('role');
+        $this->load->library('authorizee');
+
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'question_update')){
+            echo json_encode(array('code' => 0, 'error' => '抱歉，您的权限不足'));
+            exit;
+        }
+
+        if (empty($this->input->post('question_bank_name', true))){
+            echo json_encode(array('code' => -1, 'error' => '抱歉，题库名称不能为空'));
+            exit;
+        }
+        $strQuestionBankName = $this->input->post('question_bank_name', true);
+
+        if (empty($this->input->post('question_type', true))){
+            echo json_encode(array('code' => -2, 'error' => '抱歉，题目类型不能为空'));
+            exit;
+        }
+
+        $strQuestionType = $this->input->post('question_type', true);
+        if ('all' == $strQuestionType){
+            $strQuestionType = null;
+        }
+
+        $arrPage   = $this->input->post('page');
+        $intPageNo = empty($arrPage['page_no']) ? $arrPage['page_no'] : 1;
+        $intPerpage= empty($arrPage['perpage']) ? $arrPage['perpage'] : 20;
+        
+        $arrRet = $this->question_model->getQuestionListByQuestionBankName($strQuestionBankName, $intPageNo, $intPerpage, $strQuestionType);
+        echo json_encode($arrRet);
+        exit;
+    }
+
 
     /**
      * 通过question id删除问题

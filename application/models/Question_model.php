@@ -158,6 +158,34 @@ class Question_model extends CI_Model{
     }
 
     /**
+     *
+     * 通过题库名称获取题目列表以及分页
+     *
+     * @param $strQuestionBank
+     * @param $intPageNo
+     * @param $intPerpage
+     * @param $strQuestionType
+     * @return array
+     */
+    public function getQuestionListByQuestionBankName($strQuestionBank, $intPageNo = 1, $intPerpage = 20, $strQuestionType = null){
+        self::getDbInstance();
+
+        if ($strQuestionType === null){
+            $arrConds = array('question_type' => $strQuestionBank);
+        } else {
+            $arrConds = array('question_type' => $strQuestionBank, 'type' => $strQuestionType);
+        }
+
+        $cursor = self::$_db->ida->question->find($arrConds)->sort(array('question_add_time' => -1))->limit($intPerpage)->skip(($intPageNo - 1) * $intPerpage);
+
+        $data   = array();
+        foreach ($cursor as $key => $value){
+            $data[] = $value;
+        }
+        return $data;
+    }
+
+    /**
      * 根据关键字搜索问题
      *
      * @param $keyword

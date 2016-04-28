@@ -27,6 +27,7 @@
             </div>
             <div class="form-group">
                 <select class="form-control" id="select-question-answer-type">
+                    <option value="all">所有类型</option>
                     <?php foreach ($question_answer_type as $questionAnswerTypeKey => $questionAnswerTypeValue): ?>
                         <option value="<?= $questionAnswerTypeValue ?>"><?= $questionAnswerTypeKey ?></option>
                     <?php endforeach; ?>
@@ -239,6 +240,7 @@
         bindFunc: function(){
             //绑定切换下拉菜单动作方法
             dom.question_type.bind('change', this.changeQuestionBank);
+            dom.question_answer_type.bind('change', this.changeQuestionBank);
 
             //绑定进行搜索事件
             dom.search_submit.bind('click',  this.submitSearch);
@@ -255,9 +257,11 @@
         },
 
         changeQuestionBank: function(){
+
             //切换题库
             var post_data = {
-                'question_bank_name' : $(this).val(),
+                'question_bank_name' : dom.top.find('#select-question-type').val(),
+                'question_type'      : dom.top.find('#select-question-answer-type').val(),
                 'page' : page
             };
 
@@ -268,11 +272,13 @@
                 data: post_data,
                 dataType: 'json',
                 success: function (data) {
-                    if (data['code'] != 1){
+                    if (data['code']){
                         alert(data['error']);
                         return;
                     }
                     //开始填充
+//                    console.log(data);
+                    funcInit.displayData(data, page);
                 },
                 error: function(data){
                     alert('操作失败');
