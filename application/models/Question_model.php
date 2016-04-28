@@ -85,6 +85,23 @@ class Question_model extends CI_Model{
             return 0;
         }
     }
+
+    /**
+     * 更新问题
+     *
+     *
+     * @param $questionId
+     * @param $arrData
+     * @return bool
+     */
+    public function updateQuestion($questionId, $arrData){
+        self::getDbInstance();
+        if (!empty(self::$_db->ida->question->update(array('question_id' => (int)$questionId), array('$set' => $arrData))['ok'])){
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     /**    
      *  @Purpose:    

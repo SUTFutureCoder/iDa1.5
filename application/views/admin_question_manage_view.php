@@ -72,14 +72,15 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <br/>
-            <form action="admin_question_manage/modifyQuestion" class="form-horizontal" role="form" id="form_add_question" method="post">
+            <form action="admin_question_manage/modifyQuestion" class="form-horizontal" role="form" id="form_modify_question" method="post">
+                <input type="text" style="display: none;" name="question_id" id="question_id">
                 <div class="form-group">
                     <label for="question_type" class="col-sm-2 control-label">题目类型</label>
                     <div class="col-sm-9">
                         <?php if (!empty($question_type)): ?>
                             <select class="form-control" name="question_type_select" id="question_type_select">
                                 <?php foreach ($question_type as $value): ?>
-                                    <option id="question_type_select_<?= $value ?>"><?= $value ?></option>
+                                    <option class="question_type_select_option" id="question_type_select_<?= $value ?>"><?= $value ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <br/>
@@ -169,7 +170,7 @@
                 <br/>
                 <hr>
                 <div class="col-sm-10 col-sm-offset-1">
-                    <input type="submit" class="form-control btn btn-success" id="submit" value="提交">
+                    <input type="submit" class="form-control btn btn-success" id="submit" value="修改">
                 </div>
                 <br/>
                 <br/>
@@ -219,7 +220,7 @@
         question_answer_type : $("#select-question-answer-type"),
 
         question_modify_modal: $("#question_modify_modal"),
-        question_delete_modal: $("#question_delete_modal"),
+        question_delete_modal: $("#question_delete_modal")
 
 
     };
@@ -310,13 +311,15 @@
 
         modifyQuestion: function(){
             //重设表单
-            dom.question_modify_modal.find('#form_add_question').resetForm();
+            dom.question_modify_modal.find('#form_modify_question').resetForm();
+
+            var questionId = $(this).parent().attr('data-question-id');
             //ajax请求
             $.ajax({
                 type: 'POST',
                 url:  'admin_question_manage/getQuestionInfoById',
                 data: {
-                    'question_id' : $(this).parent().attr('data-question-id')
+                    'question_id' : questionId
                 },
                 dataType: 'json',
                 success: function (data) {
@@ -325,7 +328,9 @@
                         return 0;
                     }
                     //开始填充
-                    dom.question_modify_modal.find('#question_type_select_' + data['question_type']).attr('selected', 'selected');
+                    dom.question_modify_modal.find('#question_id').val(questionId);
+                    dom.question_modify_modal.find('.question_type_select_option').removeAttr('selected');
+                    dom.question_modify_modal.find('#question_type_select_' + data['question_type']).prop('selected', true);
                     dom.question_modify_modal.find('#question_content').html(data['question_content']);
 
                     //分情况
@@ -364,6 +369,45 @@
                         dom.question_modify_modal.find('#myEditor,.edui-body-container,#question_hint').html(data['question_hint']);
                     }
 
+
+                    //绑定提交选项
+                    var options = {
+                        dataType    : "json",
+                        beforeSubmit: function (){
+                            dom.question_modify_modal.find("#submit").attr("value", "正在提交中……请稍后");
+                            dom.question_modify_modal.find("#submit").attr("disabled", "disabled");
+                        },
+                        success     : function (data){
+                            if (1 != data['code']){
+                                alert(data['error']);
+                            } else {
+                                alert('修改成功');
+                                //修改信息
+                                var content = dom.content_table.find('#data_question_id_' + questionId);
+                                content.find('td:eq(1)').html(dom.question_modify_modal.find('#question_content').val());
+                                if (!dom.question_modify_modal.find('#question_type_fill').val()){
+                                    content.find('td:eq(3)').html(dom.question_modify_modal.find('#question_type_select').val());
+                                } else {
+                                    content.find('td:eq(3)').html(dom.question_modify_modal.find('#question_type_fill').val());
+                                }
+
+                                dom.question_modify_modal.find("#form_modify_question").resetForm();
+                                dom.question_modify_modal.find('#myEditor').html('');
+                            }
+
+                            dom.question_modify_modal.modal('hide');
+
+                            dom.question_modify_modal.find("#submit").removeAttr("disabled");
+                            dom.question_modify_modal.find("#submit").attr("value", "修改");
+                        },
+                        error       : function (msg){
+                            console.log(msg);
+                            alert("操作失败");
+                            dom.question_modify_modal.find("#submit").removeAttr("disabled");
+                            dom.question_modify_modal.find("#submit").attr("value", "修改");
+                        }
+                    };
+                    dom.question_modify_modal.find("#form_modify_question").ajaxForm(options);
                     dom.question_modify_modal.modal('show');
                 },
                 error: function(data){
