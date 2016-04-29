@@ -33,11 +33,11 @@ class Admin extends CI_Controller{
         $this->load->library('session');
         $this->load->library('authorizee');
         
-       // if (!$this->session->userdata('user_role') || !$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'control_center')){
-       //     header("Content-type: text/html; charset=utf-8");
-       //     echo '<script>alert("抱歉，您的权限不足");window.location.href="' . base_url() . '";</script>';            
-       //     return 0;
-       // }
+        if (!$this->session->userdata('user_role') || !$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'control_center')){
+            header("Content-type: text/html; charset=utf-8");
+            echo '<script>alert("抱歉，您的权限不足");window.location.href="' . base_url() . '";</script>';
+            return 0;
+        }
         
         $this->load->view('control_center_view');
     }

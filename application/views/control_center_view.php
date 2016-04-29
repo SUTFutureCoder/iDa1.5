@@ -27,6 +27,7 @@
 
                         <div title="题目相关">
                                 <a href="javascript:void(0);" src="<?= base_url('index.php/admin_add_question') ?>" class="cs-navi-tab">添加题目</a></p>
+                                <a href="javascript:void(0);" src="<?= base_url('index.php/admin_question_manage') ?>" class="cs-navi-tab">管理题目/题库</a></p>
 
                         </div>
 

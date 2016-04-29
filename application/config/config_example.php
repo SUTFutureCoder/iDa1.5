@@ -523,6 +523,19 @@ $config['email_wordwrap']  = TRUE;
  */
 $config['token_salt']      = 'token_salt';
 
+/**
+ * BOS部分 可能出现多个bucket或账户情况
+ */
+$config['bos_host']        = 'http://bucket.bricksfx.cn/bos_server.php';
+$config['bos_bucket_list'] = array(
+    //用于处理公有存储
+    '146044910610' => array(
+        'user_id'    => '#',
+        'access_key' => '#',
+        'secret_key' => '#',
+    ),
+);
+
 /* 全局配置 */
 date_default_timezone_set('Asia/Shanghai');//定义时区
 defined('TempLates') || define("TempLates",APPPATH."libraries/smarty/Smarty.class.php"); //smarty 配置类库

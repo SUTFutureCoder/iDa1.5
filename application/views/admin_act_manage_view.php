@@ -200,7 +200,7 @@
 
         var manageAct = {
             init: function(){
-                this.bindEvent();
+                manageAct.bindEvent();
             },
 
             bindEvent: function(){
