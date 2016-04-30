@@ -28,7 +28,6 @@ class Admin_question_manage extends CI_Controller{
     public function Index(){
         $this->load->model('question_model');
         $this->load->library('session');
-        $this->load->library('cache');
         $this->load->library('role');
         $this->load->library('authorizee');
 
@@ -40,7 +39,7 @@ class Admin_question_manage extends CI_Controller{
 
         //获取题库名称列表
         $arrQuestionType = $this->question_model->getQuestionType();
-
+        
         $this->load->view('admin_question_manage_view', array(
             'question_type'        => $arrQuestionType,
             'question_answer_type' => self::$QUESTION_TYPE,
@@ -49,5 +48,25 @@ class Admin_question_manage extends CI_Controller{
         
     }
 
+    public function searchQuestion(){
+        $this->load->model('question_model');
+        $this->load->library('session');
+        $this->load->library('role');
+        $this->load->library('authorizee');
 
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'question_update')){
+            header("Content-type: text/html; charset=utf-8");
+            echo '<script>alert("抱歉，您的权限不足");window.location.href="' . base_url() . '";</script>';
+            return 0;
+        }
+
+        if (empty($this->input->post('search_text', true))){
+            echo json_encode(array('code' => -1, 'error' => '请输入搜索关键字',));
+            exit;
+        }
+
+        $arrData = $this->question_model->searchQuestion($this->input->post('search_text', true));
+
+        echo json_encode($arrData);
+    }
 }

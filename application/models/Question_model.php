@@ -17,7 +17,18 @@ class Question_model extends CI_Model{
         parent::__construct();
     }
     
-    static private $_db;
+    static private $_db = null;
+
+    private static function getDbInstance(){
+        if (null === self::$_db){
+            $ci =& get_instance();
+            $ci->load->library('database');
+            self::$_db = $ci->database->conn();
+        }
+        return self::$_db;
+    }
+
+
     /**    
      *  @Purpose:    
      *  获取问题类型
@@ -29,15 +40,12 @@ class Question_model extends CI_Model{
      *  array $type 类型
     */ 
     public function getQuestionType(){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
         
         $type = array();
         $type_cursor = self::$_db->ida->command(array('distinct' => 'question', 'key' => 'question_type'));
         
-        foreach ($type_cursor as $key => $value){              
+        foreach ($type_cursor as $key => $value){
             $type = $value;
             break;
         }
@@ -56,10 +64,7 @@ class Question_model extends CI_Model{
      *  $_id 添加成功
     */ 
     public function addQuestion($question){
-        $this->load->library('database');        
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
         
         //设置或获取自增
         $cursor = self::$_db->ida->question->find(array(), array('question_id' => 1))->sort(array('question_id' => -1))->limit(1);
@@ -93,10 +98,7 @@ class Question_model extends CI_Model{
      *  array $data id
     */ 
     public function dumpQuestion($question_type, $type){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
         
         $data = array();
         
@@ -124,10 +126,7 @@ class Question_model extends CI_Model{
      *  array $data 问题数据(单值)
     */ 
     public function getQuestionById($question_id){
-        $this->load->library('database');
-        if (!isset(self::$_db)){
-            self::$_db = $this->database->conn();
-        }
+        self::getDbInstance();
         
         $cursor = self::$_db->ida->question->find(array('question_id' => (int)$question_id));
         
@@ -136,6 +135,24 @@ class Question_model extends CI_Model{
         }
         if (!isset($key)){
             return 0;
+        }
+        return $data;
+    }
+
+    /**
+     * 根据关键字搜索问题
+     *
+     * @param $keyword
+     * @return int
+     */
+    public function searchQuestion($keyword){
+        self::getDbInstance();
+
+        $cursor = self::$_db->ida->question->find(array('question_content' => new MongoRegex("/$keyword/"),))->sort(array('question_add_time' => -1));
+
+        $data   = array();
+        foreach ($cursor as $key => $value){
+            $data[] = $value;
         }
         return $data;
     }

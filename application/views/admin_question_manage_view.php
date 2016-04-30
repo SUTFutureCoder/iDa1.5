@@ -9,6 +9,14 @@
 <br/>
     <div id="top" class="col-sm-offset-3">
         <form class="form-inline">
+            <div class="form-group col-sm-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="top-search-text" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" id="top-search-submit" type="button">Go!</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div>
             <div class="form-group">
                 <select class="form-control" id="select-question-type">
                     <option id="select-question-type-blank">请选择题库名称</option>
@@ -25,7 +33,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-sm-offset-4">
+            <div class="form-group">
                 <div class="btn-group">
                     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         题库操作 <span class="caret"></span>
@@ -44,7 +52,18 @@
     <br/>
     <hr>
     <div id="content">
-
+        <table class="table table-hover" id="content-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>题目内容</th>
+                    <th>题库</th>
+                    <th>添加时间</th>
+                    <th>管理</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 
 </body>
@@ -58,7 +77,10 @@
 $(function(){
     var dom  = {
         top     : $("#top"),
+        search_text  : $("#top-search-text"),
+        search_submit: $("#top-search-submit"),
         content : $("#content"),
+        content_table: $("#content-table"),
         question_type        : $("#select-question-type"),
         question_answer_type : $("#select-question-answer-type")
     };
@@ -77,6 +99,9 @@ $(function(){
         bindFunc: function(){
             //绑定切换下拉菜单动作方法
             dom.question_type.bind('change', this.changeQuestionBank);
+
+            //绑定进行搜索事件
+            dom.search_submit.bind('click',  this.submitSearch);
         },
 
         changeQuestionBank: function(){
@@ -103,6 +128,54 @@ $(function(){
                     alert('操作失败');
                 }
             });
+        },
+
+        submitSearch: function () {
+            var searchText = dom.search_text.val();
+
+            if ('' == searchText){
+                alert('请输入搜索关键字');
+                return 0;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url:  'admin_question_manage/searchQuestion',
+                data: {
+                    'search_text' : searchText
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data['code']){
+                        alert(data['error']);
+                        return 0;
+                    }
+                    //开始填充
+                    funcInit.displayData(data, 0);
+                },
+                error: function(data){
+                    alert('操作失败');
+                }
+            });
+        },
+
+        displayData: function(data, divide){
+            //用于统一显示数据
+            var dataLength       = data.length;
+            var contentTableBody = dom.content_table.find('tbody');
+            contentTableBody.html('');
+            for (var i = 0; i < dataLength; ++i){
+                var strData = '<tr><td>' + (i + 1) + '</td>' +
+                    '<td>' + data[i]['question_content'] + '</td>' +
+                    '<td>' + data[i]['question_type'] + '</td>' +
+                    '<td>' + data[i]['question_add_time'] + '</td>' +
+                    '<td></td></tr>';
+                contentTableBody.append(strData);
+            }
+
+            //如果分页,则显示页码等信息
+            if (divide){
+            }
         },
 
         resetPage: function(){
