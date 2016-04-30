@@ -33,4 +33,10 @@ class Script extends CI_Controller{
         }
         echo 'done';
     }
+
+    public function addQuestionIsDelete(){
+        $objDb = self::getDbInstance();
+        $objDb->ida->question->update(array(), array('$set' => array('is_delete' => 0)), array('upsert' => false, 'multiple' => true));
+        echo 'done';
+    }
 }

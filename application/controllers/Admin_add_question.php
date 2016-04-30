@@ -172,7 +172,7 @@ class Admin_add_question extends CI_Controller{
         $clean['question_add_time'] = date('Y-m-d H:i:s');
         $clean['question_add_user_id'] = $this->session->userdata('user_id');
         $clean['question_add_user_name'] = $this->session->userdata('user_name');
-        
+        $clean['is_delete'] = 0;
         $result = $this->question_model->addQuestion($clean);
         
         if (0 != $result){

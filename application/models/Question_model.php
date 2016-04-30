@@ -43,7 +43,7 @@ class Question_model extends CI_Model{
         self::getDbInstance();
         
         $type = array();
-        $type_cursor = self::$_db->ida->command(array('distinct' => 'question', 'key' => 'question_type'));
+        $type_cursor = self::$_db->ida->command(array('distinct' => 'question', 'key' => 'question_type', 'query' => array('is_delete' => 0)));
         
         foreach ($type_cursor as $key => $value){
             $type = $value;
@@ -67,6 +67,7 @@ class Question_model extends CI_Model{
         self::getDbInstance();
         
         //设置或获取自增
+        //[这种设计比较有问题，如果被问题被删除如何处理是个问题，因此以后最好只用_id。本着不要动运行良好代码的原则，所以将全部问题加上is_delete]
         $cursor = self::$_db->ida->question->find(array(), array('question_id' => 1))->sort(array('question_id' => -1))->limit(1);
         foreach ($cursor as $key => $value){
         }
@@ -102,7 +103,7 @@ class Question_model extends CI_Model{
         
         $data = array();
         
-        $cursor = self::$_db->ida->question->find(array('type' => $type, 'question_type' => $question_type), array('question_id' => 1));
+        $cursor = self::$_db->ida->question->find(array('type' => $type, 'question_type' => $question_type, 'is_delete' => 0), array('question_id' => 1));
         
         foreach ($cursor as $key => $value){
             $data[] = $value['question_id'];
@@ -143,12 +144,13 @@ class Question_model extends CI_Model{
      * 根据关键字搜索问题
      *
      * @param $keyword
+     * @param array $arrField
      * @return int
      */
-    public function searchQuestion($keyword){
+    public function searchQuestion($keyword, $arrField = array()){
         self::getDbInstance();
 
-        $cursor = self::$_db->ida->question->find(array('question_content' => new MongoRegex("/$keyword/"),))->sort(array('question_add_time' => -1));
+        $cursor = self::$_db->ida->question->find(array('question_content' => new MongoRegex("/$keyword/"),), $arrField)->sort(array('question_add_time' => -1));
 
         $data   = array();
         foreach ($cursor as $key => $value){

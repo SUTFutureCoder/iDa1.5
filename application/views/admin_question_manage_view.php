@@ -13,7 +13,7 @@
                 <div class="input-group">
                     <input type="text" class="form-control" id="top-search-text" placeholder="Search for...">
                     <span class="input-group-btn">
-                        <button class="btn btn-success" id="top-search-submit" type="button">Go!</button>
+                        <button class="btn btn-success" id="top-search-submit" type="button">搜索</button>
                     </span>
                 </div><!-- /input-group -->
             </div>
@@ -57,6 +57,7 @@
                 <tr>
                     <th>#</th>
                     <th>题目内容</th>
+                    <th>类型</th>
                     <th>题库</th>
                     <th>添加时间</th>
                     <th>管理</th>
@@ -66,6 +67,136 @@
         </table>
     </div>
 
+
+<div class="modal fade bs-example-modal-lg" id="question_modify_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <br/>
+            <form action="admin_question_manage/modifyQuestion" class="form-horizontal" role="form" id="form_add_question" method="post">
+                <div class="form-group">
+                    <label for="question_type" class="col-sm-2 control-label">题目类型</label>
+                    <div class="col-sm-9">
+                        <?php if (!empty($question_type)): ?>
+                            <select class="form-control" name="question_type_select" id="question_type_select">
+                                <?php foreach ($question_type as $value): ?>
+                                    <option><?= $value ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <br/>
+                        <?php endif; ?>
+                        <input type="text" class="form-control" placeholder="如不在选项中请在此添加类型" name="question_type_fill" id="question_type_fill">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="question_content" class="col-sm-2 control-label">题目正文</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" name="question_content" id="question_content" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <hr>
+
+
+                <div class="form-group">
+                    <label for="question_num" class="col-sm-2 control-label">选项个数</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="question_num" id="question_num">
+                    </div>
+                </div>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <input class="form-control btn btn-info" id="confirm_question_num" value="生成选项">
+                </div>
+                <br/>
+                <br/>
+                <div class="form-group" id="question_choose_set">
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="question_choose_answer" class="col-sm-2 control-label">选择题正确答案</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="question_choose_answer" placeholder="多选请用空格分离输入 A B C" id="question_choose_answer">
+                    </div>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                    <label for="question_fill_answer" class="col-sm-2 control-label">填空答案</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="question_fill_answer" id="question_fill_answer">
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label for="question_judge" class="col-sm-2 control-label">是否为判断题</label>
+                    <div class="col-sm-9">
+                        <input type="checkbox" name="question_judge" id="question_judge" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="question_judge_true" class="col-sm-2 control-label">是否正确</label>
+                    <div class="col-sm-9">
+                        <input type="checkbox" name="question_judge_true" id="question_judge_true" >
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label for="question_score" class="col-sm-2 control-label">题目分值</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="question_score" id="question_score">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="question_private" class="col-sm-2 control-label">是否私有</label>
+                    <div class="col-sm-9">
+                        <input type="checkbox" name="question_private" id="question_private" >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="question_hint" class="col-sm-2 control-label">题目提示</label>
+                    <div class="col-sm-9">
+                        <textarea type="text/plain" id="myEditor" name="question_hint" style="width:400%;height:240px;"></textarea>
+                    </div>
+                </div>
+
+                <br/>
+                <br/>
+                <hr>
+                <div class="col-sm-10 col-sm-offset-1">
+                    <input type="submit" class="form-control btn btn-success" id="submit" value="提交">
+                </div>
+                <br/>
+                <br/>
+                <hr>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade bs-example-modal-lg" id="question_delete_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <br/>
+            <h1 style="color: red">您确定要删除第"<a id="question_delete_modal_display_id"></a>"号问题吗?</h1>
+            <br/>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-danger" data-delete-act-id="" id="delete_question_submit">删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 <script src="http://nws.oss-cn-qingdao.aliyuncs.com/jquery.min.js"></script>
 <script src="http://nws.oss-cn-qingdao.aliyuncs.com/bootstrap.min.js"></script>
@@ -74,7 +205,10 @@
 <script type="text/javascript" src="<?= base_url('ueditor/lang/zh-cn/zh-cn.js') ?>"></script>
 <script src="<?= base_url('js/jquery.form.js')?>"></script>
 <script>
-$(function(){
+    //实例化编辑器
+    var um = UM.getEditor('myEditor');
+
+    $(function(){
     var dom  = {
         top     : $("#top"),
         search_text  : $("#top-search-text"),
@@ -82,7 +216,10 @@ $(function(){
         content : $("#content"),
         content_table: $("#content-table"),
         question_type        : $("#select-question-type"),
-        question_answer_type : $("#select-question-answer-type")
+        question_answer_type : $("#select-question-answer-type"),
+
+        question_modify_modal: $("#question_modify_modal"),
+        question_delete_modal: $("#question_delete_modal")
     };
 
     var page = {
@@ -102,6 +239,10 @@ $(function(){
 
             //绑定进行搜索事件
             dom.search_submit.bind('click',  this.submitSearch);
+
+            //绑定点击修改、删除事件 (动态绑定)
+            dom.content_table.on('click', '.question-modify', this.modifyQuestion);
+            dom.content_table.on('click', '.question-delete', this.deleteQuestion);
         },
 
         changeQuestionBank: function(){
@@ -159,22 +300,64 @@ $(function(){
             });
         },
 
+        modifyQuestion: function(){
+//            alert($(this).parent().attr('data-question-type'));
+
+            //ajax请求
+            $.ajax({
+                type: 'POST',
+                url:  'admin_question_manage/getQuestionInfoById',
+                data: {
+                    'question_id' : $(this).parent().attr('data-question-id')
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data['code']){
+                        alert(data['error']);
+                        return 0;
+                    }
+                    //开始填充
+                    console.log(data);
+                    dom.question_modify_modal.modal('show');
+                },
+                error: function(data){
+                    alert('操作失败');
+                }
+            });
+        },
+
+        deleteQuestion: function(){
+            var questionListId = ($(this).parent().attr('data-question-list-id') * 1) + 1;
+            dom.question_delete_modal.find('#question_delete_modal_display_id').html(questionListId);
+            dom.question_delete_modal.modal('show');
+        },
+
         displayData: function(data, divide){
             //用于统一显示数据
             var dataLength       = data.length;
             var contentTableBody = dom.content_table.find('tbody');
+            var questionType     = [];
+            questionType['choose']       = '单选';
+            questionType['multi_choose'] = '多选';
+            questionType['fill']         = '填空';
+            questionType['judge']        = '判断';
+
             contentTableBody.html('');
+
             for (var i = 0; i < dataLength; ++i){
                 var strData = '<tr><td>' + (i + 1) + '</td>' +
                     '<td>' + data[i]['question_content'] + '</td>' +
+                    '<td>' + questionType[data[i]['type']] + '</td>' +
                     '<td>' + data[i]['question_type'] + '</td>' +
                     '<td>' + data[i]['question_add_time'] + '</td>' +
-                    '<td></td></tr>';
+                    '<td data-question-list-id="' + i + '" data-question-type="' + data[i]['type'] + '" data-question-id="' + data[i]['question_id'] + '"><button class="btn btn-warning question-modify">修改</button><button class="btn btn-danger question-delete">删除</button></td></tr>';
                 contentTableBody.append(strData);
             }
 
             //如果分页,则显示页码等信息
             if (divide){
+
+
             }
         },
 

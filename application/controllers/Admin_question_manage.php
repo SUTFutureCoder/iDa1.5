@@ -39,7 +39,7 @@ class Admin_question_manage extends CI_Controller{
 
         //获取题库名称列表
         $arrQuestionType = $this->question_model->getQuestionType();
-        
+
         $this->load->view('admin_question_manage_view', array(
             'question_type'        => $arrQuestionType,
             'question_answer_type' => self::$QUESTION_TYPE,
@@ -65,8 +65,38 @@ class Admin_question_manage extends CI_Controller{
             exit;
         }
 
-        $arrData = $this->question_model->searchQuestion($this->input->post('search_text', true));
+        $arrField = array(
+            'type'              => 1,
+            'question_type'     => 1,
+            'question_content'  => 1,
+            'question_add_time' => 1,
+            'question_id'       => 1,
+        );
+
+        $arrData = $this->question_model->searchQuestion($this->input->post('search_text', true), $arrField);
 
         echo json_encode($arrData);
+    }
+
+    public function getQuestionInfoById(){
+        $this->load->model('question_model');
+        $this->load->library('session');
+        $this->load->library('role');
+        $this->load->library('authorizee');
+
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'question_update')){
+            header("Content-type: text/html; charset=utf-8");
+            echo '<script>alert("抱歉，您的权限不足");window.location.href="' . base_url() . '";</script>';
+            return 0;
+        }
+
+        $strId = $this->input->post('question_id', true);
+
+        if (empty($strId)){
+            echo json_encode(array('code' => -1, 'error' => '传输的问题id有误'));
+            exit;
+        }
+
+        echo json_encode($this->question_model->getQuestionById($strId));
     }
 }
