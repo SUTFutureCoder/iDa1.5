@@ -79,7 +79,7 @@
                         <?php if (!empty($question_type)): ?>
                             <select class="form-control" name="question_type_select" id="question_type_select">
                                 <?php foreach ($question_type as $value): ?>
-                                    <option><?= $value ?></option>
+                                    <option id="question_type_select_<?= $value ?>"><?= $value ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <br/>
@@ -243,6 +243,9 @@
             //绑定点击修改、删除事件 (动态绑定)
             dom.content_table.on('click', '.question-modify', this.modifyQuestion);
             dom.content_table.on('click', '.question-delete', this.deleteQuestion);
+
+            //修改选项个数
+            dom.question_modify_modal.on('click', '#confirm_question_num', this.changeQuestionNum);
         },
 
         changeQuestionBank: function(){
@@ -301,8 +304,8 @@
         },
 
         modifyQuestion: function(){
-//            alert($(this).parent().attr('data-question-type'));
-
+            //重设表单
+            dom.question_modify_modal.find('#form_add_question').resetForm();
             //ajax请求
             $.ajax({
                 type: 'POST',
@@ -317,13 +320,62 @@
                         return 0;
                     }
                     //开始填充
-                    console.log(data);
+                    dom.question_modify_modal.find('#question_type_select_' + data['question_type']).attr('selected', 'selected');
+                    dom.question_modify_modal.find('#question_content').html(data['question_content']);
+
+                    //分情况
+                    if (data['type'] == 'choose' || data['type'] == 'multi_choose'){
+                        var questionNum = data['question_choose'].length;
+                        dom.question_modify_modal.find('#question_num').val(questionNum);
+                        //模拟点击，显示选项
+                        dom.question_modify_modal.find('#confirm_question_num').trigger("click");
+                        //填充选项
+                        for (var i = 0; i < questionNum; i++){
+                            dom.question_modify_modal.find('#question_choose_' + i).val(data['question_choose'][i]);
+                        }
+                        //正确答案
+                        dom.question_modify_modal.find('#question_choose_answer').val(data['question_answer'].join(' '));
+                    }
+
+                    //目前没有
+                    if (data['type'] == 'fill'){
+                        dom.question_modify_modal.find('#question_fill_answer').val(data['question_answer']);
+                    }
+
+                    if (data['type'] == 'judge'){
+                        dom.question_modify_modal.find('#question_judge').prop('checked', true);
+                        if (1 == data['question_answer']){
+                            dom.question_modify_modal.find('#question_judge_true').prop('checked', true);
+                        }
+                    }
+
+                    dom.question_modify_modal.find('#question_score').val(data['question_score']);
+
+                    if (1 == data['question_private']){
+                        dom.question_modify_modal.find('#question_private').prop('checked', true);
+                    }
+
+                    if (data['question_hint']){
+                        dom.question_modify_modal.find('#myEditor,.edui-body-container,#question_hint').html(data['question_hint']);
+                    }
+
                     dom.question_modify_modal.modal('show');
                 },
                 error: function(data){
                     alert('操作失败');
                 }
             });
+        },
+
+        changeQuestionNum: function(){
+            dom.question_modify_modal.find('#question_choose_set').empty();
+            var questionIndicator = 65;
+            var questionNum       = dom.question_modify_modal.find('#question_num').val();
+            var strAppend         = '';
+            for (var i = 0; i < questionNum; i++, questionIndicator++){
+                strAppend += '<label for="question_choose_' + String.fromCharCode(questionIndicator) + '" class="col-sm-2 control-label">' + String.fromCharCode(questionIndicator) + '</label><div class="col-sm-9"><input type="text" class="form-control question_choose_input" name="question_choose[]" id="question_choose_' + i + '"></div><br/><br/>';
+            }
+            dom.question_modify_modal.find('#question_choose_set').append(strAppend);
         },
 
         deleteQuestion: function(){
