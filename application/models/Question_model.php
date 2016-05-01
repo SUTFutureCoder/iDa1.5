@@ -43,11 +43,11 @@ class Question_model extends CI_Model{
         self::getDbInstance();
         
         $type = array();
-        $type_cursor = self::$_db->ida->command(array('distinct' => 'question', 'key' => 'question_type', 'query' => array('is_delete' => 0)));
-        
+//        $type_cursor = self::$_db->ida->command(array('distinct' => 'question', 'key' => 'question_type', 'query' => array('is_delete' => 0)));
+        $type_cursor = self::$_db->ida->question->distinct('question_type', array('is_delete' => 0));
+
         foreach ($type_cursor as $key => $value){
-            $type = $value;
-            break;
+            $type[] = $value;
         }
         return $type;
     }
@@ -150,12 +150,29 @@ class Question_model extends CI_Model{
     public function searchQuestion($keyword, $arrField = array()){
         self::getDbInstance();
 
-        $cursor = self::$_db->ida->question->find(array('question_content' => new MongoRegex("/$keyword/"),), $arrField)->sort(array('question_add_time' => -1));
+        $cursor = self::$_db->ida->question->find(array('question_content' => new MongoRegex("/$keyword/"), 'is_delete' => 0), $arrField)->sort(array('question_add_time' => -1));
 
         $data   = array();
         foreach ($cursor as $key => $value){
             $data[] = $value;
         }
         return $data;
+    }
+
+    /**
+     *
+     * 根据id删除问题
+     *
+     * @param $intQuestionId
+     * @return bool
+     */
+    public function deleteQuestionById($intQuestionId){
+        self::getDbInstance();
+
+        if (!empty(self::$_db->ida->question->update(array('question_id' => (int)$intQuestionId), array('$set' => array('is_delete' => 1)))['ok'])){
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -99,4 +99,35 @@ class Admin_question_manage extends CI_Controller{
 
         echo json_encode($this->question_model->getQuestionById($strId));
     }
+
+    /**
+     * 通过question id删除问题
+     *
+     * @return int
+     */
+    public function deleteQuestionById(){
+        $this->load->model('question_model');
+        $this->load->library('session');
+        $this->load->library('role');
+        $this->load->library('authorizee');
+
+        if (!$this->authorizee->CheckAuthorizee($this->session->userdata('user_role'), 'question_dele')){
+            header("Content-type: text/html; charset=utf-8");
+            echo '<script>alert("抱歉，您的权限不足");window.location.href="' . base_url() . '";</script>';
+            return 0;
+        }
+
+        if (!$this->input->post('question_id', true)){
+            echo json_encode(array('code' => -1, '输入的id不能为空'));
+            exit;
+        }
+
+        $ret = $this->question_model->deleteQuestionById($this->input->post('question_id', true));
+        if (false === $ret){
+            echo json_encode(array('code' => -2, '删除失败'));
+            exit;
+        }
+
+        echo json_encode(array('code' => 1));
+    }
 }

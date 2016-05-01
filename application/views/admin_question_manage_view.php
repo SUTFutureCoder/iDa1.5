@@ -219,7 +219,9 @@
         question_answer_type : $("#select-question-answer-type"),
 
         question_modify_modal: $("#question_modify_modal"),
-        question_delete_modal: $("#question_delete_modal")
+        question_delete_modal: $("#question_delete_modal"),
+
+
     };
 
     var page = {
@@ -246,6 +248,9 @@
 
             //修改选项个数
             dom.question_modify_modal.on('click', '#confirm_question_num', this.changeQuestionNum);
+
+            //执行删除操作
+            dom.question_delete_modal.find('#delete_question_submit').bind('click', this.deleteQuestionExec);
         },
 
         changeQuestionBank: function(){
@@ -381,7 +386,34 @@
         deleteQuestion: function(){
             var questionListId = ($(this).parent().attr('data-question-list-id') * 1) + 1;
             dom.question_delete_modal.find('#question_delete_modal_display_id').html(questionListId);
+            dom.question_delete_modal.find('#delete_question_submit').attr('data-question-id', $(this).parent().attr('data-question-id'));
             dom.question_delete_modal.modal('show');
+        },
+
+        deleteQuestionExec: function(){
+            var questionId = $(this).attr('data-question-id');
+            //ajax请求
+            $.ajax({
+                type: 'POST',
+                url:  'admin_question_manage/deleteQuestionById',
+                data: {
+                    'question_id' : questionId
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if (data['code'] != 1){
+                        alert(data['error']);
+                        return 0;
+                    }
+                    alert('删除成功');
+                    //开始清理
+                    dom.content_table.find('#data_question_id_' + questionId).remove();
+                    dom.question_delete_modal.modal('hide');
+                },
+                error: function(data){
+                    alert('操作失败');
+                }
+            });
         },
 
         displayData: function(data, divide){
@@ -397,7 +429,7 @@
             contentTableBody.html('');
 
             for (var i = 0; i < dataLength; ++i){
-                var strData = '<tr><td>' + (i + 1) + '</td>' +
+                var strData = '<tr id="data_question_id_' + data[i]['question_id'] + '"><td>' + (i + 1) + '</td>' +
                     '<td>' + data[i]['question_content'] + '</td>' +
                     '<td>' + questionType[data[i]['type']] + '</td>' +
                     '<td>' + data[i]['question_type'] + '</td>' +
