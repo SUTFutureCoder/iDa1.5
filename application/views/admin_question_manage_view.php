@@ -68,7 +68,7 @@
         </table>
     </div>
 
-    <div id="bottom">
+    <div id="bottom" class="col-md-offset-5">
 
     </div>
 
@@ -500,6 +500,8 @@
 
             //如果分页,则显示页码等信息
             if (divide){
+                //清空分页条
+                dom.bottom.html('');
                 //计算一共几页
                 var pageSum      = Math.ceil((sum * 1) / page.perpage);
                 //算出展示的页码，5个一组，12345,34567
@@ -518,7 +520,7 @@
                     //结尾情况
                     lastPageBtn  = pageSum;
                     if (lastPageBtn  - pageBtnShow > 0){
-                        firstPageBtn = lastPageBtn - pageBtnShow;
+                        firstPageBtn = lastPageBtn - pageBtnShow + 1;
                     } else {
                         firstPageBtn = 1;
                     }
@@ -532,7 +534,7 @@
                     '<li id="pager_prev"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>';
 
                 for (var i = firstPageBtn; i <= lastPageBtn; ++i){
-                    strDivide += '<li class="pager_changer" data-pager-num="' + i + '"><a href="#">' + i + ' </a></li>';
+                    strDivide += '<li class="pager_changer" id="pager_num_' + i + '" data-pager-num="' + i + '"><a href="#">' + i + ' </a></li>';
                 }
 
                 strDivide += '<li id="pager_next"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li></ul></nav>';
@@ -560,6 +562,8 @@
                     });
                 }
 
+                dom.bottom.find("#pager_num_" + page.page_no).addClass('active');
+
                 //遍历绑定
                 dom.bottom.find('.pager_changer').each(function () {
                     $(this).on('click', function(){
@@ -567,6 +571,12 @@
                         funcInit.changeQuestionBank();
                     });
                 });
+
+                //显示分页条
+                dom.bottom.show();
+            } else {
+                //隐藏分页条
+                dom.bottom.hide();
             }
         },
 
