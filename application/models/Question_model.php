@@ -78,7 +78,7 @@ class Question_model extends CI_Model{
             $question['question_id'] = ++$value['question_id'];
         }
         
-        self::$_db->ida->question->insert($question, array('safe' => TRUE));
+        self::$_db->ida->question->insert($question);
         if ($question['_id']){
             return $question['question_id'];
         } else {

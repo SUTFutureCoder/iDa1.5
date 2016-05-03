@@ -100,7 +100,7 @@ class Answer_model extends CI_Model{
             self::$_db = $this->database->conn();
         }
         
-        self::$_db->ida->answer->insert($answer_init_data, array('safe' => TRUE));
+        self::$_db->ida->answer->insert($answer_init_data);
         
         if (isset($answer_init_data['_id'])){
             return $answer_init_data['_id'];

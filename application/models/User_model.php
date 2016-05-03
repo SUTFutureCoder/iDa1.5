@@ -37,7 +37,7 @@ class User_model extends CI_Model{
         }
         
         try{
-            self::$_db->ida->user->insert($user_info, array('w' => true));
+            self::$_db->ida->user->insert($user_info);
             $result[0] = 1;
             $result[1] = $user_info['_id'];
         } catch (Exception $ex) {

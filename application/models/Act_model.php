@@ -44,7 +44,7 @@ class Act_model extends CI_Model{
     public function setAct($act){
         self::getDbInstance();
         
-        self::$_db->ida->act->insert($act, array('safe' => TRUE));
+        self::$_db->ida->act->insert($act);
         if ($act['_id']){
             return $act['_id'];
         } else {

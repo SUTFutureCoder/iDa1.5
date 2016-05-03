@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1236e7fd-782e-4799-a1b2-6c8ffa198ece" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin_question_manage_view.php" afterPath="$PROJECT_DIR$/application/views/admin_question_manage_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin_question_manage.php" afterPath="$PROJECT_DIR$/application/controllers/Admin_question_manage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Act_model.php" afterPath="$PROJECT_DIR$/application/models/Act_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Answer_model.php" afterPath="$PROJECT_DIR$/application/models/Answer_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Question_model.php" afterPath="$PROJECT_DIR$/application/models/Question_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User_model.php" afterPath="$PROJECT_DIR$/application/models/User_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index_view.php" afterPath="$PROJECT_DIR$/application/views/index_view.php" />
     </list>
     <ignored path="iDa_Online.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,14 +32,14 @@
     <favorites_list name="iDa_Online" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.80126464">
+    <splitter split-orientation="horizontal" split-proportion="0.74208146">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Answer_model.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/models/Answer_model.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3212">
-                  <caret line="146" column="28" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="28" />
+                <state relative-caret-position="252">
+                  <caret line="102" column="57" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
                   <folding />
                 </state>
               </provider>
@@ -53,8 +58,18 @@
           <file leaf-file-name="Act_model.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/models/Act_model.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4620">
-                  <caret line="210" column="20" selection-start-line="210" selection-start-column="20" selection-end-line="210" selection-end-column="20" />
+                <state relative-caret-position="168">
+                  <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="User_model.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="189">
+                  <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
                   <folding />
                 </state>
               </provider>
@@ -63,8 +78,8 @@
           <file leaf-file-name="Admin_act_manage.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/controllers/Admin_act_manage.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3652">
-                  <caret line="166" column="9" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
+                <state relative-caret-position="168">
+                  <caret line="168" column="90" selection-start-line="168" selection-start-column="72" selection-end-line="168" selection-end-column="90" />
                   <folding />
                 </state>
               </provider>
@@ -73,19 +88,22 @@
           <file leaf-file-name="Question_model.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/models/Question_model.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-444">
-                  <caret line="185" column="21" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
+                <state relative-caret-position="1760">
+                  <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Admin_add_act.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/controllers/Admin_add_act.php">
+          <file leaf-file-name="index_view.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/application/views/index_view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4202">
-                  <caret line="191" column="22" selection-start-line="189" selection-start-column="21" selection-end-line="191" selection-end-column="22" />
-                  <folding />
+                <state relative-caret-position="261">
+                  <caret line="274" column="49" selection-start-line="274" selection-start-column="49" selection-end-line="274" selection-end-column="49" />
+                  <folding>
+                    <marker date="1462243148266" expanded="true" signature="16920:17379" placeholder="..." />
+                    <marker date="1462243148266" expanded="true" signature="17168:17354" placeholder="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -93,18 +111,8 @@
           <file leaf-file-name="admin_act_manage_view.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/views/admin_act_manage_view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2336">
+                <state relative-caret-position="4466">
                   <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Admin_statis.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/application/controllers/Admin_statis.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="792">
-                  <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
                   <folding />
                 </state>
               </provider>
@@ -113,18 +121,18 @@
           <file leaf-file-name="Admin_question_manage.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/controllers/Admin_question_manage.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="274">
-                  <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+                <state relative-caret-position="1474">
+                  <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin_question_manage_view.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="admin_question_manage_view.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/views/admin_question_manage_view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="579" column="13" selection-start-line="500" selection-start-column="12" selection-end-line="579" selection-end-column="13" />
+                <state relative-caret-position="12628">
+                  <caret line="574" column="22" selection-start-line="574" selection-start-column="22" selection-end-line="574" selection-end-column="22" />
                   <folding>
                     <marker date="1461748528083" expanded="true" signature="21013:21018" placeholder="..." />
                     <marker date="1461748528083" expanded="true" signature="21013:21067" placeholder="..." />
@@ -172,11 +180,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="admin_add_user_view.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="admin_add_user_view.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/views/admin_add_user_view.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="484">
                   <caret line="22" column="11" selection-start-line="12" selection-start-column="4" selection-end-line="22" selection-end-column="11" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Admin_add_user.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/application/controllers/Admin_add_user.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="22">
+                  <caret line="75" column="24" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
@@ -202,10 +220,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Index.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="902">
+                <state relative-caret-position="230">
                   <caret line="41" column="44" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="44" />
                   <folding />
                 </state>
@@ -232,7 +250,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/index_view.php" />
         <option value="$PROJECT_DIR$/application/views/test_view.php" />
         <option value="$PROJECT_DIR$/application/views/admin_add_question_view.php" />
         <option value="$PROJECT_DIR$/application/views/admin_add_user_view.php" />
@@ -246,16 +263,17 @@
         <option value="$PROJECT_DIR$/application/controllers/Admin_add_act.php" />
         <option value="$PROJECT_DIR$/application/config/config_example.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
-        <option value="$PROJECT_DIR$/application/models/Act_model.php" />
-        <option value="$PROJECT_DIR$/application/models/Answer_model.php" />
-        <option value="$PROJECT_DIR$/application/models/User_model.php" />
         <option value="$PROJECT_DIR$/application/views/control_center_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Script.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin_add_question.php" />
         <option value="$PROJECT_DIR$/application/views/admin_act_manage_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Question_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Admin_question_manage.php" />
         <option value="$PROJECT_DIR$/application/views/admin_question_manage_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Admin_question_manage.php" />
+        <option value="$PROJECT_DIR$/application/models/Answer_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Act_model.php" />
+        <option value="$PROJECT_DIR$/application/models/User_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Question_model.php" />
+        <option value="$PROJECT_DIR$/application/views/index_view.php" />
       </list>
     </option>
   </component>
@@ -299,6 +317,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -364,13 +383,30 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iDa_Online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iDa_Online" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -473,21 +509,23 @@
       <workItem from="1462003965840" duration="12888000" />
       <workItem from="1462066225659" duration="15181000" />
       <workItem from="1461833558933" duration="6005000" />
-      <workItem from="1461917225235" duration="4166000" />
+      <workItem from="1461917225235" duration="5616000" />
+      <workItem from="1462239892492" duration="2145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117438000" />
+    <option name="totallyTimeSpent" value="121033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1368" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15805471" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16033435" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22833334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -498,7 +536,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22833334" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -565,7 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="31" column="10" selection-start-line="10" selection-start-column="4" selection-end-line="31" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,13 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/index_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5896">
-          <caret line="268" column="28" selection-start-line="268" selection-start-column="27" selection-end-line="268" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -747,24 +776,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Script.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Admin_add_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5324">
-          <caret line="242" column="14" selection-start-line="242" selection-start-column="14" selection-end-line="242" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -788,14 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -848,42 +855,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Act_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4620">
-          <caret line="210" column="20" selection-start-line="210" selection-start-column="20" selection-end-line="210" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Answer_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3212">
-          <caret line="146" column="28" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Admin_act_manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3652">
-          <caret line="166" column="9" selection-start-line="166" selection-start-column="9" selection-end-line="166" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin_act_manage_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2336">
+        <state relative-caret-position="4466">
           <caret line="203" column="14" selection-start-line="203" selection-start-column="14" selection-end-line="203" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Question_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="185" column="21" selection-start-line="185" selection-start-column="21" selection-end-line="185" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -892,7 +867,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2424">
           <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin_question_manage_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12628">
+          <caret line="574" column="22" selection-start-line="574" selection-start-column="22" selection-end-line="574" selection-end-column="22" />
+          <folding>
+            <marker date="1461748528083" expanded="true" signature="21013:21018" placeholder="..." />
+            <marker date="1461748528083" expanded="true" signature="21013:21067" placeholder="..." />
+            <marker date="1461748528083" expanded="true" signature="21013:21107" placeholder="..." />
+            <marker date="1461748528083" expanded="true" signature="21013:21178" placeholder="..." />
+            <marker date="1461748528083" expanded="true" signature="22996:23020" placeholder="..." />
+            <marker date="1461748528083" expanded="true" signature="22996:23139" placeholder="..." />
+            <marker date="1461748528083" expanded="true" signature="22996:23509" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -904,26 +894,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Admin_question_manage.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin_act_manage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+        <state relative-caret-position="168">
+          <caret line="168" column="90" selection-start-line="168" selection-start-column="72" selection-end-line="168" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin_question_manage_view.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin_add_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="579" column="13" selection-start-line="500" selection-start-column="12" selection-end-line="579" selection-end-column="13" />
+        <state relative-caret-position="22">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Admin_question_manage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1474">
+          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Answer_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="102" column="57" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Act_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="52" selection-end-line="39" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Question_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="80" column="51" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/index_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="274" column="49" selection-start-line="274" selection-start-column="49" selection-end-line="274" selection-end-column="49" />
           <folding>
-            <marker date="1461748528083" expanded="true" signature="21013:21018" placeholder="..." />
-            <marker date="1461748528083" expanded="true" signature="21013:21067" placeholder="..." />
-            <marker date="1461748528083" expanded="true" signature="21013:21107" placeholder="..." />
-            <marker date="1461748528083" expanded="true" signature="21013:21178" placeholder="..." />
-            <marker date="1461748528083" expanded="true" signature="22996:23020" placeholder="..." />
-            <marker date="1461748528083" expanded="true" signature="22996:23139" placeholder="..." />
-            <marker date="1461748528083" expanded="true" signature="22996:23509" placeholder="..." />
+            <marker date="1462243148266" expanded="true" signature="16920:17379" placeholder="..." />
+            <marker date="1462243148266" expanded="true" signature="17168:17354" placeholder="..." />
           </folding>
         </state>
       </provider>

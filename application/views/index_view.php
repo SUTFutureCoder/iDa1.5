@@ -268,17 +268,20 @@
                         alert(data['error']);
                     } else {
                         $("#loginModal").modal('toggle');
-                        $(".navbar-right").empty();  
-                        $(".navbar-right").append('<li class="dropdown active">' + 
-                    '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' + data['user_name'] + '<span class="caret"></span></a>' + 
-                    '<ul class="dropdown-menu" role="menu">' + 
-                    '<li class="divider"></li>' +                     
-                    '<li><a id="logout" onclick="logOut()" href="#">注销</a></li>' + 
-                    '</ul>'+
-                '</li>');
-                        $("#login_button").removeAttr("onclick");
-                        $("#form_login").resetForm();
-                        logined = 1;
+                        //登录成功
+                        window.location.reload(true);
+//
+//                        $(".navbar-right").empty();
+//                        $(".navbar-right").append('<li class="dropdown active">' +
+//                    '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">' + data['user_name'] + '<span class="caret"></span></a>' +
+//                    '<ul class="dropdown-menu" role="menu">' +
+//                    '<li class="divider"></li>' +
+//                    '<li><a id="logout" onclick="logOut()" href="#">注销</a></li>' +
+//                    '</ul>'+
+//                '</li>');
+//                        $("#login_button").removeAttr("onclick");
+//                        $("#form_login").resetForm();
+//                        logined = 1;
                     }
                     $("#submit_login").removeAttr("disabled");
                     $("#submit_login").attr("value", "登录");

@@ -65,7 +65,7 @@ class Admin_question_manage extends CI_Controller{
             return 0;
         }
 
-        if (empty($this->input->post('search_text', true))){
+        if (!($this->input->post('search_text', true))){
             echo json_encode(array('code' => -1, 'error' => '请输入搜索关键字',));
             exit;
         }
@@ -122,13 +122,13 @@ class Admin_question_manage extends CI_Controller{
             exit;
         }
 
-        if (empty($this->input->post('question_bank_name', true))){
+        if ('' == ($this->input->post('question_bank_name', true))){
             echo json_encode(array('code' => -1, 'error' => '抱歉，题库名称不能为空'));
             exit;
         }
         $strQuestionBankName = $this->input->post('question_bank_name', true);
 
-        if (empty($this->input->post('question_type', true))){
+        if ('' == ($this->input->post('question_type', true))){
             echo json_encode(array('code' => -2, 'error' => '抱歉，题目类型不能为空'));
             exit;
         }
@@ -142,7 +142,7 @@ class Admin_question_manage extends CI_Controller{
 
         $intPageNo = !empty($arrPage['page_no']) ? $arrPage['page_no'] : 1;
         $intPerpage= !empty($arrPage['perpage']) ? $arrPage['perpage'] : 20;
-        
+
         $arrRet = $this->question_model->getQuestionListByQuestionBankName($strQuestionBankName, $intPageNo, $intPerpage, $strQuestionType);
         echo json_encode($arrRet);
         exit;
