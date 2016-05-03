@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1236e7fd-782e-4799-a1b2-6c8ffa198ece" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Admin_question_manage.php" afterPath="$PROJECT_DIR$/application/controllers/Admin_question_manage.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Act_model.php" afterPath="$PROJECT_DIR$/application/models/Act_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Answer_model.php" afterPath="$PROJECT_DIR$/application/models/Answer_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Question_model.php" afterPath="$PROJECT_DIR$/application/models/Question_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User_model.php" afterPath="$PROJECT_DIR$/application/models/User_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index_view.php" afterPath="$PROJECT_DIR$/application/views/index_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin_add_user_view.php" afterPath="$PROJECT_DIR$/application/views/admin_add_user_view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/control_center_view.php" afterPath="$PROJECT_DIR$/application/views/control_center_view.php" />
     </list>
     <ignored path="iDa_Online.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +27,7 @@
     <favorites_list name="iDa_Online" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.74208146">
+    <splitter split-orientation="horizontal" split-proportion="0.22396313">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Answer_model.php" pinned="false" current-in-tab="false">
@@ -98,8 +93,8 @@
           <file leaf-file-name="index_view.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/application/views/index_view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="261">
-                  <caret line="274" column="49" selection-start-line="274" selection-start-column="49" selection-end-line="274" selection-end-column="49" />
+                <state relative-caret-position="5940">
+                  <caret line="270" column="30" selection-start-line="270" selection-start-column="30" selection-end-line="270" selection-end-column="30" />
                   <folding>
                     <marker date="1462243148266" expanded="true" signature="16920:17379" placeholder="..." />
                     <marker date="1462243148266" expanded="true" signature="17168:17354" placeholder="..." />
@@ -183,8 +178,20 @@
           <file leaf-file-name="admin_add_user_view.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/views/admin_add_user_view.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="484">
-                  <caret line="22" column="11" selection-start-line="12" selection-start-column="4" selection-end-line="22" selection-end-column="11" />
+                <state relative-caret-position="198">
+                  <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+                  <folding>
+                    <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="control_center_view.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/application/views/control_center_view.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="264">
+                  <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
                   <folding />
                 </state>
               </provider>
@@ -220,7 +227,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Index.php" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="230">
@@ -252,7 +259,6 @@
       <list>
         <option value="$PROJECT_DIR$/application/views/test_view.php" />
         <option value="$PROJECT_DIR$/application/views/admin_add_question_view.php" />
-        <option value="$PROJECT_DIR$/application/views/admin_add_user_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Test.php" />
         <option value="$PROJECT_DIR$/application/libraries/Ida.php" />
         <option value="$PROJECT_DIR$/application/controllers/Index.php" />
@@ -263,7 +269,6 @@
         <option value="$PROJECT_DIR$/application/controllers/Admin_add_act.php" />
         <option value="$PROJECT_DIR$/application/config/config_example.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin.php" />
-        <option value="$PROJECT_DIR$/application/views/control_center_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Script.php" />
         <option value="$PROJECT_DIR$/application/controllers/Admin_add_question.php" />
         <option value="$PROJECT_DIR$/application/views/admin_act_manage_view.php" />
@@ -274,6 +279,8 @@
         <option value="$PROJECT_DIR$/application/models/User_model.php" />
         <option value="$PROJECT_DIR$/application/models/Question_model.php" />
         <option value="$PROJECT_DIR$/application/views/index_view.php" />
+        <option value="$PROJECT_DIR$/application/views/admin_add_user_view.php" />
+        <option value="$PROJECT_DIR$/application/views/control_center_view.php" />
       </list>
     </option>
   </component>
@@ -366,24 +373,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iDa_Online" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iDa_Online" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -510,18 +499,18 @@
       <workItem from="1462066225659" duration="15181000" />
       <workItem from="1461833558933" duration="6005000" />
       <workItem from="1461917225235" duration="5616000" />
-      <workItem from="1462239892492" duration="2145000" />
+      <workItem from="1462239892492" duration="5533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121033000" />
+    <option name="totallyTimeSpent" value="124421000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1368" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16033435" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17477204" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -594,7 +583,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
           <caret line="22" column="11" selection-start-line="12" selection-start-column="4" selection-end-line="22" selection-end-column="11" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -762,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/control_center_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="146" selection-start-line="29" selection-start-column="146" selection-end-line="29" selection-end-column="146" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/about_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -886,14 +870,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin_add_user_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="11" selection-start-line="12" selection-start-column="4" selection-end-line="22" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin_act_manage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -906,14 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="75" column="24" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -960,12 +928,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/index_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="274" column="49" selection-start-line="274" selection-start-column="49" selection-end-line="274" selection-end-column="49" />
+        <state relative-caret-position="5940">
+          <caret line="270" column="30" selection-start-line="270" selection-start-column="30" selection-end-line="270" selection-end-column="30" />
           <folding>
             <marker date="1462243148266" expanded="true" signature="16920:17379" placeholder="..." />
             <marker date="1462243148266" expanded="true" signature="17168:17354" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin_add_user_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/control_center_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>

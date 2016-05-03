@@ -42,9 +42,7 @@
 
                         <div title="权限相关">
                                 <a href="javascript:void(0);" src="<?= base_url('index.php/admin_add_user')?>" class="cs-navi-tab">添加用户</a></p>
-                                <a href="javascript:void(0);" src="index.php/changepass" class="cs-navi-tab">更改密码</a></p>
-                                <a href="javascript:void(0);" src="<?= base_url('index.php/changepass')?>" class="cs-navi-tab">权限管理</a></p>
-                        </div>       
+                        </div>
 		</div>
 	</div>
 	<div id="mainPanle" region="center" border="true" border="false">

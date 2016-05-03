@@ -19,6 +19,9 @@
             <br/>
             <br/>
             <button class="btn btn-lg btn-info col-sm-10 col-sm-offset-1">用户批量上传</button>
+            <br/>
+            <div class="col-sm-3 col-sm-offset-1"><p style="color: red;">密码默认为学号后六位，不足的为全长</p></div>
+            <br/>
         </div>
     </form>
     <hr>
